@@ -8,16 +8,11 @@ Repositorio de ejemplos, ejercicios, mini-proyectos y proyectos finales de difer
 
 ## Tabla de Contenidos
 
-* [Descripción](#descripción)
 * [Tecnologías Utilizadas](#tecnologías-utilizadas)
 * [Estructura del Proyecto](#estructura-del-proyecto)
 * [Instalación y Ejecución](#instalación-y-ejecución)
 * [Autores](#autores)
 * [Licencia](#licencia)
-
-## Descripción
-
-El proyecto tiene como objetivo desarrollar una aplicación distribuida que simula un entorno empresarial real, integrando diversos servicios y tecnologías. Se enfoca en la implementación de microservicios, orquestación con Docker y Kubernetes, y procesos ETL para la gestión de datos.
 
 ## Tecnologías Utilizadas
 
