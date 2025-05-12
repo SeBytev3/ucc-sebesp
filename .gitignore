@@ -1,13 +1,17 @@
-/data/Crime_Data_from_2020_to_Present_20240914.csv
+/2402-Sistemas-Distribuidos/data/Crime_Data_from_2020_to_Present_20240914.csv
 
 *.zip
 *.bak
 *.jar
+*.gpg
+
 
 .dbeaver/credentials-config.json
+.project
 build
 target
 
-.vscode/
+
+.vscode/*
 
 app-cliente-pyhton/venv/*
