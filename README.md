@@ -1,4 +1,4 @@
-Este readme proporciona una visión general del repositorio, destacando las tecnologías utilizadas y las funcionalidades principales. **No son instrucciones.** Todo este repositorio está realizado en **Ubuntu WSL**.
+Este readme proporciona una visión general del repositorio, destacando las tecnologías utilizadas y las funcionalidades principales. **No son instrucciones.** Todo este repositorio está realizado en **Ubuntu WSL**. Nada de aquí pertenece a la Universidad Cooperativa de Colombia - UCC.
 
 ---
 
