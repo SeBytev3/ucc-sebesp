@@ -116,4 +116,4 @@ Este proyecto hace uso de las siguientes tecnologías de terceros:
 - [Minikube](https://minikube.sigs.k8s.io/) – Licencia Apache 2.0
 - [Alpine Linux](https://alpinelinux.org/) – Licencia MIT
 - [Ubuntu](https://ubuntu.com/) – Licencia GPLv2 / Canonical
-- [Pentaho (Kettle)](https://pentaho.com/pentaho-developer-edition/) – Business Source License (BSL)
+- [Pentaho Data Integration](https://pentaho.com/pentaho-developer-edition/) – Business Source License (BSL)
