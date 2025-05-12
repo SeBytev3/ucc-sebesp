@@ -102,3 +102,18 @@ D. **Desplegar en Kubernetes:**
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más información.
+
+## Tecnologías y Licencias de Terceros
+
+Este proyecto hace uso de las siguientes tecnologías de terceros:
+
+- [Python](https://www.python.org/) – Licencia PSF
+- [Java](https://www.oracle.com/java/) – Licencia GPLv2 con Classpath Exception
+- [C++ (g++)](https://gcc.gnu.org/) – Licencia GPLv3
+- [PostgreSQL](https://www.postgresql.org/) – Licencia PostgreSQL (similar a MIT)
+- [Docker](https://www.docker.com/) – Licencia Apache 2.0
+- [Kubernetes](https://kubernetes.io/) – Licencia Apache 2.0
+- [Minikube](https://minikube.sigs.k8s.io/) – Licencia Apache 2.0
+- [Alpine Linux](https://alpinelinux.org/) – Licencia MIT
+- [Ubuntu](https://ubuntu.com/) – Licencia GPLv2 / Canonical
+- [Pentaho (Kettle)](https://pentaho.com/pentaho-developer-edition/) – Business Source License (BSL)
