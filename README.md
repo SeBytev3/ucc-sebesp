@@ -2,7 +2,7 @@ Este readme proporciona una visión general del repositorio, destacando las tecn
 
 ---
 
-# ucc-sidi-sebesp
+# UCC-SebEsp
 
 Repositorio de ejemplos, ejercicios, mini-proyectos y proyectos finales de diferentes cursos de Ingeniería de Sistemas, desarrollado en la Universidad Cooperativa de Colombia (UCC). Este repositorio implementa arquitecturas de microservicios utilizando múltiples lenguajes de programación y herramientas de integración y despliegue continuo.
 
