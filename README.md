@@ -67,6 +67,10 @@ Repositorio de ejemplos, ejercicios, mini-proyectos y proyectos finales de difer
 * Pentaho Data Integration (Kettle) instalado
 * Java, Python y compilador de C++ disponibles
 
+### A Tener en Cuenta
+* 2402 - SIDI (Sistemas Distribuidos)
+* 2501 - GBD (Gestión de Bases de Datos)
+
 ### Pasos Generales
 
 A. **Clonar el repositorio:**
