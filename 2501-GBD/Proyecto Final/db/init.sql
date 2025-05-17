@@ -14,6 +14,9 @@ CREATE TABLE clientes.clientes (
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Índices sugeridos para clientes
+CREATE INDEX idx_clientes_nombre ON clientes.clientes(nombre);
+
 -- Crear la tabla de préstamos
 CREATE TABLE prestamos.prestamos (
     prestamo_id SERIAL PRIMARY KEY,
@@ -25,6 +28,11 @@ CREATE TABLE prestamos.prestamos (
     estado VARCHAR(50) CHECK (estado IN ('activo', 'pagado', 'moroso')) DEFAULT 'activo'
 );
 
+-- Índices sugeridos para préstamos
+CREATE INDEX idx_prestamos_cliente_id ON prestamos.prestamos(cliente_id);
+CREATE INDEX idx_prestamos_fecha_inicio ON prestamos.prestamos(fecha_inicio);
+CREATE INDEX idx_prestamos_fecha_vencimiento ON prestamos.prestamos(fecha_vencimiento);
+
 -- Crear la tabla de pagos
 CREATE TABLE pagos.pagos (
     pago_id SERIAL PRIMARY KEY,
@@ -33,6 +41,10 @@ CREATE TABLE pagos.pagos (
     fecha_pago TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     metodo_pago VARCHAR(50)
 );
+
+-- Índices sugeridos para pagos
+CREATE INDEX idx_pagos_prestamo_id ON pagos.pagos(prestamo_id);
+CREATE INDEX idx_pagos_fecha_pago ON pagos.pagos(fecha_pago);
 
 -- Crear la tabla de auditoría
 CREATE TABLE auditoria.registro_acciones (
@@ -44,6 +56,9 @@ CREATE TABLE auditoria.registro_acciones (
     usuario VARCHAR(100)
 );
 
--- Insertar un cliente de ejemplo
+-- Insertar clientes de ejemplo
 INSERT INTO clientes.clientes (nombre, direccion, telefono, email)
-VALUES ('Juan Pérez', 'Calle Ficticia 123', '555-1234', 'juan@example.com');
+VALUES 
+  ('Juan Pérez', 'Calle Ficticia 123', '555-1234', 'juan@example.com'),
+  ('Ana García', 'Avenida Siempre Viva 742', '555-5678', 'ana@example.com'),
+  ('Carlos López', 'Calle Real 456', '555-9012', 'carlos@example.com');
