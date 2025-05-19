@@ -61,4 +61,5 @@ INSERT INTO clientes.clientes (nombre, direccion, telefono, email)
 VALUES 
   ('Juan Pérez', 'Calle Ficticia 123', '555-1234', 'juan@example.com'),
   ('Ana García', 'Avenida Siempre Viva 742', '555-5678', 'ana@example.com'),
-  ('Carlos López', 'Calle Real 456', '555-9012', 'carlos@example.com');
+  ('Carlos López', 'Calle Real 456', '555-9012', 'carlos@example.com'),
+  ('María Fernández', 'Calle Imaginaria 789', '555-3456', 'maria@example.com');
