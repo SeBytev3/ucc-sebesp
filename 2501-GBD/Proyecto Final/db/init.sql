@@ -63,3 +63,9 @@ VALUES
   ('Ana García', 'Avenida Siempre Viva 742', '555-5678', 'ana@example.com'),
   ('Carlos López', 'Calle Real 456', '555-9012', 'carlos@example.com'),
   ('María Fernández', 'Calle Imaginaria 789', '555-3456', 'maria@example.com');
+
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+
+-- Cambiar la columna 'monto' a 'bytea' (tipo adecuado para datos encriptados)
+ALTER TABLE prestamos.prestamos 
+    ALTER COLUMN monto SET DATA TYPE bytea USING monto::text::bytea;
