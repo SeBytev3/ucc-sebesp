@@ -1,6 +1,11 @@
 FROM alpine:latest
 
-RUN apk add --no-cache postgresql-client bash curl
+RUN apk add --no-cache postgresql-client bash curl tzdata
+
+RUN cp /usr/share/zoneinfo/America/Bogota /etc/localtime && \
+    echo "America/Bogota" > /etc/timezone
+
+RUN mkdir -p /respaldo && chmod -R 777 /respaldo
 
 COPY cron.sh /cron.sh
 COPY respaldo_completo.sh /respaldo_completo.sh

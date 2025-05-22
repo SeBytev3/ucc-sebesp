@@ -1,29 +1,37 @@
+import sys
 import random
 import time
 import psycopg
 from threading import Thread
 from flask import Flask, render_template
 
+# Desactivar el buffering de la salida estándar
+sys.stdout.flush()
+
 app = Flask(__name__)
 
-# URI de conexión a PostgreSQL (mantener en hardcode)
+# URI de conexión a PostgreSQL
 DB_URI = "postgresql://postgres:postgres@postgres:5432/prestamos_db"
 
-# Conexión con reintentos
-for i in range(10):
+# Conexión con reintentos (máximo 30 segundos)
+MAX_RETRIES = 10
+WAIT_TIME = 3  # Espera de 3 segundos entre intentos
+
+for i in range(MAX_RETRIES):
     try:
         conn = psycopg.connect(DB_URI, autocommit=True)
-        print("✅ Conectado a PostgreSQL")
-        break
+        print("✅ Conectado a PostgreSQL", flush=True)
+        break  # Si la conexión es exitosa, salimos del ciclo
     except psycopg.OperationalError:
-        print(f"⏳ Reintentando conexión a PostgreSQL ({i+1}/10)...")
-        time.sleep(3)
+        print(f"⏳ Reintentando conexión a PostgreSQL ({i+1}/{MAX_RETRIES})...", flush=True)
+        time.sleep(WAIT_TIME)
 else:
     raise Exception("❌ No se pudo conectar a PostgreSQL después de 10 intentos.")
 
 clientes_nombres = ['Juan Pérez', 'Ana García', 'Carlos López', 'María Fernández']
 montos_prestamo = [1000, 2000, 3000, 4000, 5000]
 
+# Función para generar un préstamo aleatorio
 def generar_prestamo():
     nombre = random.choice(clientes_nombres)
     monto = random.choice(montos_prestamo)
@@ -32,19 +40,21 @@ def generar_prestamo():
     # Encriptación del monto
     monto_encriptado = f"pgp_sym_encrypt('{monto}', 'clave_secreta')"
     
-    # Devolvemos monto encriptado como texto
     return (nombre, monto_encriptado, monto, fecha)
 
+# Función para generar un pago aleatorio
 def generar_pago(prestamo_id, monto_total):
-    monto_pago = random.randint(100, int(monto_total))  # Ahora monto_total es un número
+    monto_pago = random.randint(100, int(monto_total))  # Aquí monto_total es un número
     fecha_pago = time.strftime('%Y-%m-%d %H:%M:%S')
+    
     with conn.cursor() as cursor:
         cursor.execute(
             "INSERT INTO pagos.pagos (prestamo_id, monto_pago, fecha_pago, metodo_pago) VALUES (%s, %s, %s, %s)",
             (prestamo_id, monto_pago, fecha_pago, "efectivo")
         )
-        print(f"✅ Pago de ${monto_pago} registrado para préstamo {prestamo_id}")
+        print(f"✅ Pago de ${monto_pago} registrado para préstamo {prestamo_id}", flush=True)
 
+# Función para simular préstamos y pagos de manera continua en un hilo de ejecución
 def simular_prestamos_y_pagos():
     with conn.cursor() as cursor:
         while True:
@@ -52,7 +62,7 @@ def simular_prestamos_y_pagos():
             cursor.execute("SELECT cliente_id FROM clientes.clientes WHERE nombre = %s", (nombre,))
             result = cursor.fetchone()
             if not result:
-                print(f"❌ Cliente no encontrado: {nombre}")
+                print(f"❌ Cliente no encontrado: {nombre}", flush=True)
                 continue
             cliente_id = result[0]
             # Fecha de vencimiento aleatoria entre 30 y 180 días desde hoy
@@ -65,13 +75,15 @@ def simular_prestamos_y_pagos():
                 (cliente_id, fecha, fecha_vencimiento, 5.0)
             )
             prestamo_id = cursor.fetchone()[0]
-            print(f"💸 Préstamo generado para {nombre}: ${monto} con vencimiento {fecha_vencimiento}")
+            print(f"💸 Préstamo generado para {nombre}: ${monto} con vencimiento {fecha_vencimiento}", flush=True)
 
             # Simula un pago aleatorio para ese préstamo
             generar_pago(prestamo_id, monto)
 
+            # Espera aleatoria entre 3 y 6 segundos antes de generar el siguiente préstamo y pago
             time.sleep(random.randint(3, 6))
 
+# Iniciar el hilo para la simulación de préstamos y pagos
 Thread(target=simular_prestamos_y_pagos, daemon=True).start()
 
 @app.route('/')
