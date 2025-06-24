@@ -66,6 +66,6 @@ VALUES
 
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
--- Cambiar la columna 'monto' a 'bytea' (tipo adecuado para datos encriptados)
+-- Cambia columna 'monto' a 'bytea' (tipo adecuado para datos encriptados)
 ALTER TABLE prestamos.prestamos 
     ALTER COLUMN monto SET DATA TYPE bytea USING monto::text::bytea;

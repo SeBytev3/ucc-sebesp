@@ -103,7 +103,7 @@ def consultar_prestamos():
             FROM prestamos.prestamos p
             JOIN clientes.clientes c ON p.cliente_id = c.cliente_id
             WHERE c.nombre = %s
-        """, ('Juan Pérez',))  # El nombre puede ser dinámico según la entrada del usuario
+        """, ('Juan Pérez',))  # El nombre puede ser elegido de estos: 'Juan Pérez', 'Ana García', 'Carlos López', 'María Fernández'
         prestamos = cursor.fetchall()
         return render_template('prestamos.html', prestamos=prestamos)
 
