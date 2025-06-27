@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
 Crear tickets en GLPI (fecha fija + hora aleatoria) y
-asignarlos al técnico/solicitante ID 118.
+asignarlos al técnico/solicitante ID TECH_ID.
 
 Requisitos:
   pip install requests python-dotenv
   Variables .env:
-    GLPI_URL=https://soporte.almotores.com/KIA/apirest.php
-    GLPI_APP_TOKEN=fLINeUjHMV9TiXI1EK2RiVwnhb1NTZ5bHfnrh8aS
-    GLPI_USER_TOKEN=jgkVgAzqFzrpqkirH8DmuJhXon4tdswPAmLv67mi
+    GLPI_URL=https://glpipage.com/apirest.php
+    GLPI_APP_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    GLPI_USER_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 """
 
 import os
@@ -16,26 +16,35 @@ import json
 import random
 import requests
 from dotenv import load_dotenv
+from techselection import USERS
 
 load_dotenv()
 
 # ---------- 1. Tickets a crear ---------------------------------------------
-TICKETS = [
-    # 04-06-2025
-    {
-        "date": "2025-06-04",
-        "case": "Título Prueba",
-        "problem": "Comentario de prueba.",
-    },
-]
+with open("tickets.json", "r", encoding="utf-8") as f:
+    TICKETS = json.load(f)
 
+# ---------- 1.1 Selección de usuario ---------------------------------------
+def seleccionar_usuario():
+    print("¿Para quién deseas cargar los tickets?")
+    for idx, user in enumerate(USERS, 1):
+        print(f"{idx}. {user['name']} (ID {user['id']})")
+    opcion = input(f"Selecciona 1-{len(USERS)}: ").strip()
+    try:
+        idx = int(opcion) - 1
+        if 0 <= idx < len(USERS):
+            return USERS[idx]["id"]
+    except Exception:
+        pass
+    print(f"Opción no válida. Se usará {USERS[-1]['name']} (ID {USERS[-1]['id']}) por defecto.")
+    return USERS[-1]["id"]
+
+TECH_ID = seleccionar_usuario()
 
 # ---------- 2. Conexión GLPI ------------------------------------------------
 GLPI_URL   = os.getenv("GLPI_URL")
 APP_TOKEN  = os.getenv("GLPI_APP_TOKEN")
 USER_TOKEN = os.getenv("GLPI_USER_TOKEN")
-
-TECH_ID = 118  # ← tu usuario en GLPI
 
 # ---------- 3. Utilidades ---------------------------------------------------
 def random_hour() -> str:
@@ -130,7 +139,7 @@ def main() -> None:
             add_actor(token, tid, TECH_ID, 2)  # Técnico
             add_actor(token, tid, TECH_ID, 1)  # Solicitante (opcional)
 
-            print(f"✅ Ticket #{tid} creado y asignado a usuario 118: {item['case']}")
+            print(f"✅ Ticket #{tid} creado y asignado a usuario {TECH_ID}: {item['case']}")
     finally:
         end_session(token)
 

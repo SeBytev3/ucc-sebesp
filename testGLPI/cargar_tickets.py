@@ -1,128 +1,121 @@
 #!/usr/bin/env python3
 """
-Crear tickets en GLPI (fecha fija + hora aleatoria) y
-asignarlos al técnico/solicitante ID TECH_ID.
-
-Requisitos:
-  pip install requests python-dotenv
-  Variables .env:
-    GLPI_URL=https://glpipage.com/apirest.php
-    GLPI_APP_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    GLPI_USER_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Carga tickets en GLPI, firmándolos con el token del técnico
+seleccionado, añade solución y deja el ticket en estado RESUELTO.
 """
 
-import os
-import json
-import random
-import requests
+import os, json, random, time, requests
+from datetime import datetime, timedelta
 from dotenv import load_dotenv
-from config import TECH_ID
+from techselection import USERS
 
 load_dotenv()
 
-# ---------- 1. Tickets a crear ---------------------------------------------
-with open("tickets.json", "r", encoding="utf-8") as f:
+# ---- 1. Leer tickets -------------------------------------------------------
+with open("tickets.json", encoding="utf-8") as f:
     TICKETS = json.load(f)
 
-# ---------- 2. Conexión GLPI ------------------------------------------------
-GLPI_URL   = os.getenv("GLPI_URL")
-APP_TOKEN  = os.getenv("GLPI_APP_TOKEN")
-USER_TOKEN = os.getenv("GLPI_USER_TOKEN")
+# ---- 2. Elegir técnico y su token -----------------------------------------
+def seleccionar_usuario() -> dict:
+    for i, u in enumerate(USERS, 1):
+        print(f"{i}. {u['name']} (ID {u['id']})")
+    try:
+        idx = int(input(f"Selecciona 1-{len(USERS)}: ").strip()) - 1
+        if 0 <= idx < len(USERS):
+            return USERS[idx]
+    except Exception:
+        pass
+    return USERS[0]
 
-# ---------- 3. Utilidades ---------------------------------------------------
-def random_hour() -> str:
-    hour   = random.randint(8, 16)   # 08:00–16:59
-    minute = random.randint(0, 59)
-    return f"{hour:02d}:{minute:02d}:00"
+usuario    = seleccionar_usuario()
+TECH_ID    = usuario["id"]
+USER_TOKEN = usuario["token"]          # ¡token del técnico elegido!
 
-def api(path: str) -> str:
-    return f"{GLPI_URL.rstrip('/')}/{path.lstrip('/')}"
+# ---- 3. Conexión -----------------------------------------------------------
+GLPI_URL  = os.getenv("GLPI_URL").rstrip("/")
+APP_TOKEN = os.getenv("GLPI_APP_TOKEN")
+api = lambda p: f"{GLPI_URL}/{p.lstrip('/')}"
 
 def start_session() -> str:
-    resp = requests.get(
-        api("initSession"),
-        headers={
-            "App-Token": APP_TOKEN,
-            "Authorization": f"user_token {USER_TOKEN}",
-        },
-        timeout=15,
-    )
-    resp.raise_for_status()
-    return resp.json()["session_token"]
+    r = requests.get(api("initSession"), headers={
+        "App-Token": APP_TOKEN,
+        "Authorization": f"user_token {USER_TOKEN}"
+    }, timeout=15); r.raise_for_status()
+    return r.json()["session_token"]
 
-def end_session(token: str) -> None:
-    requests.get(
-        api("killSession"),
-        headers={"Session-Token": token, "App-Token": APP_TOKEN},
-        timeout=10,
-    )
+def end_session(tok: str):
+    requests.get(api("killSession"), headers={
+        "Session-Token": tok, "App-Token": APP_TOKEN
+    }, timeout=10)
 
-# ---------- 4. Operaciones sobre tickets -----------------------------------
-def create_ticket(token: str, when: str, title: str, description: str) -> int:
-    payload = {
-        "input": {
-            "name": title,
-            "content": description,
-            "date": when,
-            "status": 1        # Nuevo
-        }
-    }
-    resp = requests.post(
-        api("Ticket"),
-        headers={
-            "Session-Token": token,
-            "App-Token": APP_TOKEN,
-            "Content-Type": "application/json",
-        },
-        data=json.dumps(payload),
-        timeout=20,
-    )
-    resp.raise_for_status()
-    return resp.json()["id"]
+# ---- 4. Operaciones GLPI ---------------------------------------------------
+def create_ticket(tok, fecha, titulo, desc) -> int:
+    r = requests.post(api("Ticket"), headers={
+        "Session-Token": tok, "App-Token": APP_TOKEN,
+        "Content-Type": "application/json"
+    }, data=json.dumps({"input":{
+        "name": titulo, "content": desc,
+        "date": fecha, "status": 1
+    }}), timeout=20); r.raise_for_status()
+    return r.json()["id"]
 
-def add_actor(token: str, ticket_id: int, user_id: int, role_type: int) -> None:
-    """
-    role_type:
-      1 = Solicitante
-      2 = Técnico (Asignado)
-    """
-    payload = {
-        "input": {
-            "tickets_id": ticket_id,
-            "users_id": user_id,
-            "type": role_type
-        }
-    }
-    resp = requests.post(
-        api("Ticket_User"),
-        headers={
-            "Session-Token": token,
-            "App-Token": APP_TOKEN,
-            "Content-Type": "application/json",
-        },
-        data=json.dumps(payload),
-        timeout=20,
-    )
-    resp.raise_for_status()
+def add_actor(tok, tid, uid, role):
+    requests.post(api("Ticket_User"), headers={
+        "Session-Token": tok, "App-Token": APP_TOKEN,
+        "Content-Type": "application/json"
+    }, data=json.dumps({"input":{
+        "tickets_id": tid, "users_id": uid, "type": role
+    }}), timeout=20).raise_for_status()
 
-# ---------- 5. Ejecución principal -----------------------------------------
-def main() -> None:
+def add_solution(tok, tid, texto, fecha, tipo_id):
+    payload = {"input":{
+        "itemtype": "Ticket",
+        "items_id": tid,
+        "solutiontypes_id": tipo_id,
+        "content": texto,
+        "date": fecha,
+        "status": 1   # propuesta (no cambia estado)
+    }}
+    r = requests.post(api("ITILSolution"), headers={
+        "Session-Token": tok, "App-Token": APP_TOKEN,
+        "Content-Type": "application/json"
+    }, data=json.dumps(payload), timeout=20)
+    if r.status_code != 201:
+        print("⚠️  GLPI dice:", r.status_code, r.text)
+    r.raise_for_status()
+
+def set_resolved(tok, tid, fecha):
+    requests.put(api("Ticket"), headers={
+        "Session-Token": tok, "App-Token": APP_TOKEN,
+        "Content-Type": "application/json"
+    }, data=json.dumps({"input":{
+        "id": tid, "status": 5, "solvedate": fecha
+    }}), timeout=20).raise_for_status()
+
+# ---- 5. Utilidades ---------------------------------------------------------
+rand_hour = lambda: f"{random.randint(8,16):02d}:{random.randint(0,59):02d}:00"
+
+# ---- 6. Main ---------------------------------------------------------------
+def main():
     token = start_session()
     try:
-        for item in TICKETS:
-            datetime_str = f"{item['date']} {random_hour()}"
-            tid = create_ticket(
-                token,
-                datetime_str,
-                item["case"],
-                item["problem"]          # solo el problema en el contenido
-            )
+        for t in TICKETS:
+            start_dt  = f"{t['date']} {rand_hour()}"
+            solved_dt = (datetime.strptime(start_dt, "%Y-%m-%d %H:%M:%S")
+                         + timedelta(minutes=random.randint(5,60))
+                        ).strftime("%Y-%m-%d %H:%M:%S")
 
-            # Te añades como técnico y solicitante
-            add_actor(token, tid, TECH_ID, 2)  # Técnico
-            add_actor(token, tid, TECH_ID, 1)  # Solicitante (opcional)
+            tipo_id = t.get("solution_type", 2)  # 2 por defecto
 
-            print(f"✅ Ticket #{tid} creado y asignado a usuario {TECH_ID}: {item['case']}")
+            tid = create_ticket(token, start_dt, t["case"], t["problem"])
+            add_actor(token, tid, TECH_ID, 2)   # Técnico
+            add_actor(token, tid, TECH_ID, 1)   # Solicitante
+            time.sleep(1)
+
+            add_solution(token, tid, t["solution"], solved_dt, tipo_id)
+            set_resolved(token, tid, solved_dt)
+
+            print(f"✅ #{tid} RESUELTO (creado por {usuario['name']}) → {t['case']}")
     finally:
         end_session(token)
 

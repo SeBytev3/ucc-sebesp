@@ -1,12 +1,23 @@
 [
   {
-    "date": "2025-06-17",
-    "case": "Cambio impresora comercial KIA Pasoancho",
-    "problem": "A petición del área comercial se programa un cambio de impresora"
+    "date": "2025-06-25",
+    "case": "Reposición teclado y mouse Supernumeraria",
+    "problem": "Ser solicita reposición del mouse y teclado del equipo de Supernumeraria, pues se habían dado a Rocío",
+    "solution": "Se hace entrega de mouse y teclado por unos usados en buen estado.",
+    "solution_type": 2
   },
   {
-    "date": "2025-06-17",
-    "case": "Actualizar contactos impresora KIA",
-    "problem": "Se solicita actualizar usuarios configurados en la impresora de comercial KIA Pasoancho"
+    "date": "2025-06-25",
+    "case": "Reenviador aevargas no funciona",
+    "problem": "Stiven reporta que el reenviador creado de aevargas a directorcomercialnorte no funciona",
+    "solution": "Se realiza validación y el reenviador no estaba configurado en cPanel, se configura y se hacen pruebas desde dominio almotores.com, outlook.com y gmail.com, las cuatro pruebas realizan funcionan correctamente, Stiven evidencia que sí funciona.",
+    "solution_type": 2
+  },
+  {
+    "date": "2025-06-26",
+    "case": "Asignación Caja Norte Daniela Millan",
+    "problem": "Se solicita conceder permiso en la caja norte de manera temporal",
+    "solution": "Se concede el permiso",
+    "solution_type": 5
   }
 ]
