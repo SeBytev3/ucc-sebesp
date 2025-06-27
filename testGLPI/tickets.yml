@@ -1,0 +1,22 @@
+# ------- Tickets junio 25-26 (con comentarios) --------
+
+# Reposición de periféricos en Supernumeraria
+- date: 2025-06-25
+  case: Reposición teclado y mouse Supernumeraria
+  problem: Se solicita reposición del mouse y teclado del equipo de Supernumeraria, pues se habían dado a Rocío
+  solution: Se entrega mouse y teclado en buen estado y se valida funcionamiento
+  solution_type: 2        # Correctiva
+
+# Ajuste de reenviador de correo
+- date: 2025-06-25
+  case: Reenviador aevargas no funciona
+  problem: Stiven reporta que el reenviador de aevargas a directorcomercialnorte no funciona
+  solution: Se configura reenviador en cPanel y se prueban envíos desde almotores.com, outlook.com y gmail.com; funciona correctamente
+  solution_type: 2
+
+# Permiso temporal en caja Norte
+- date: 2025-06-26
+  case: Asignación Caja Norte Daniela Millan
+  problem: Se solicita conceder permiso en la caja norte de manera temporal
+  solution: Se concede el permiso
+  solution_type: 5        # Parametrización

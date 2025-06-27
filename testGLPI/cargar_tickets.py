@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 """
-Carga tickets en GLPI, firmándolos con el token del técnico
-seleccionado, añade solución y deja el ticket en estado RESUELTO.
+Carga tickets en GLPI leyendo un archivo YAML (tickets.yml),
+firma con el token del técnico elegido y deja los tickets RESUELTOS.
 """
 
-import os, json, random, time, requests
+import os, yaml, random, time, requests
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from techselection import USERS
 
 load_dotenv()
 
-# ---- 1. Leer tickets -------------------------------------------------------
-with open("tickets.json", encoding="utf-8") as f:
-    TICKETS = json.load(f)
+# ---- 1. Leer tickets desde YAML -------------------------------------------
+with open("tickets.yml", encoding="utf-8") as f:
+    TICKETS = yaml.safe_load(f)
 
 # ---- 2. Elegir técnico y su token -----------------------------------------
 def seleccionar_usuario() -> dict:
@@ -115,7 +115,7 @@ def main():
             add_solution(token, tid, t["solution"], solved_dt, tipo_id)
             set_resolved(token, tid, solved_dt)
 
-            print(f"✅ #{tid} RESUELTO (creado por {usuario['name']}) → {t['case']}")
+            print(f"✅ #{tid} SOLUCIONADO (creado por {usuario['name']}) → {t['case']}")
     finally:
         end_session(token)
 
