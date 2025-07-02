@@ -4,7 +4,7 @@ Carga tickets en GLPI leyendo un archivo YAML (tickets.yml),
 firma con el token del técnico elegido y deja los tickets RESUELTOS.
 """
 
-import os, yaml, random, time, requests
+import os, json, yaml, random, time, requests
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from techselection import USERS

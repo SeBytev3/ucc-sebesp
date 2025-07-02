@@ -1,22 +1,61 @@
-# ------- Tickets junio 25-26 (con comentarios) --------
+# ---------------- Tickets del 14 de junio al 2 de julio de 2025 ----------------
 
-# Reposición de periféricos en Supernumeraria
-- date: 2025-06-25
-  case: Reposición teclado y mouse Supernumeraria
-  problem: Se solicita reposición del mouse y teclado del equipo de Supernumeraria, pues se habían dado a Rocío
-  solution: Se entrega mouse y teclado en buen estado y se valida funcionamiento
-  solution_type: 2        # Correctiva
+- date: 2025-06-14
+  case: Cambio teclado y mouse Rocio
+  problem: Se reporta teclado pegado y Mouse que no le funciona bien el clic
+  solution: Se cambia teclado y mouse por unos usados en buen estado que estaban en el PC de supernumeraria
+  solution_type: 2  # Correctiva
 
-# Ajuste de reenviador de correo
-- date: 2025-06-25
-  case: Reenviador aevargas no funciona
-  problem: Stiven reporta que el reenviador de aevargas a directorcomercialnorte no funciona
-  solution: Se configura reenviador en cPanel y se prueban envíos desde almotores.com, outlook.com y gmail.com; funciona correctamente
-  solution_type: 2
-
-# Permiso temporal en caja Norte
 - date: 2025-06-26
-  case: Asignación Caja Norte Daniela Millan
-  problem: Se solicita conceder permiso en la caja norte de manera temporal
-  solution: Se concede el permiso
-  solution_type: 5        # Parametrización
+  case: Equipo lento Rocio Ortega
+  problem: Reporta que su PC se pega y está lento
+  solution: Se valida, cuenta con 4GB de RAM DDR4, se aumenta agregando otro modulo de 4GB DDR4, se recomienda que si se pone lento nuevamente lo informe para aumentar a 12GB
+  solution_type: 2  # Correctiva
+
+- date: 2025-06-27
+  case: Acceso URL de estudio Julian Valencia
+  problem: Solicita acceder a las paginas https://virtual.compuaulas.com/login/index.php y https://eanx.co
+  solution: Se concede el acceso de manera temporal, hasta que termine el curso a las paginas compuaulas.com y eanx.co
+  solution_type: 5  # Parametrización
+
+- date: 2025-06-27
+  case: Permiso caja Angie Acosta
+  problem: Se solicita permiso temporal para Angie Acosta de caja norte
+  solution: Se concede el permiso solicitado
+  solution_type: 5  # Parametrización
+
+- date: 2025-06-27
+  case: Revisión conexión Facturación
+  problem: Reportan que el internet está lento y se cae
+  solution: Se verifica y reportan los externos de PST, se reinicia el switch y se comprueba la conexión, queda ok
+  solution_type: 2  # Correctiva
+
+- date: 2025-06-27
+  case: Revisión Red Externo AP Caja
+  problem: El AP del área comercial cerca a Caja no difunde correctamente la red Externo, el TV de VIP se conecta a Externo del AP Recepción Taller
+  solution: Se deshabilitan todos los AP menos el de caja, se establece conexión fija a ese AP sin éxito. Se cambia el canal 2.4GHz al 1 pero sigue fallando
+  solution_type: 2  # Correctiva
+
+- date: 2025-06-28
+  case: Exclusión correos protecciondatos@* del corporativo
+  problem: María Andrea reporta que llegan correos corporativos a protecciondatos@*, lo cual no debería pasar
+  solution: Se excluyen correos del listado de corporativo para evitar saturación del buzón, queda ok
+  solution_type: 2  # Correctiva
+
+- date: 2025-07-01
+  case: Novedad Inicio sesión Microsoft
+  problem: Sandra Quintero reporta que no puede iniciar sesión en el PC por login de Microsoft
+  solution: Se valida y se rechaza la ventana estorbosa del login de la cuenta de Microsoft
+  solution_type: 2  # Correctiva
+
+- date: 2025-07-01
+  case: Instalación impresora sede Norte a Valentina Campos
+  problem: Solicita instalar la impresora de administración norte en el equipo corporativo de Diana Valentina Campos
+  solution: Se crea la cuenta en la impresora, se instala, configura y realiza pruebas. Queda ok
+  solution_type: 5  # Parametrización
+
+- date: 2025-07-02
+  case: TV JAC no conecta a internet
+  problem: Se reporta que el TV de JAC Taller no se conecta a ninguna red
+  solution: Se valida y se encuentra bloqueado a nivel de UniFi
+  solution_type: 2  # Correctiva
