@@ -18,8 +18,8 @@ Repositorio de ejemplos, ejercicios, mini-proyectos y proyectos finales de difer
 
 * **Lenguajes de Programación:**
 
-  * Java
   * Python
+  * Java
   * C++
 
 * **Contenedores y Orquestación:**
