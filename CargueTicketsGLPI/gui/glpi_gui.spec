@@ -5,7 +5,7 @@ a = Analysis(
     ['glpi_gui.py'],
     pathex=[],
     binaries=[],
-    datas=[('iconCargueGLPI.ico', '.')],
+    datas=[('iconCargueGLPI.ico', '.'), ('.env', '.'), ('techselection.py', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
