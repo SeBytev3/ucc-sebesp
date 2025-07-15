@@ -98,6 +98,8 @@ rand_hour = lambda: f"{random.randint(8,16):02d}:{random.randint(0,59):02d}:00"
 # ---- 6. Main ---------------------------------------------------------------
 def main():
     token = start_session()
+    cargados = 0  # contador de tickets cargados
+
     try:
         for t in TICKETS:
             start_dt  = f"{t['date']} {rand_hour()}"
@@ -116,8 +118,11 @@ def main():
             set_resolved(token, tid, solved_dt)
 
             print(f"✅ #{tid} SOLUCIONADO (creado por {usuario['name']}) → {t['case']}")
+            cargados += 1
+
     finally:
         end_session(token)
+        print(f"\n🎉 Total tickets cargados: {cargados}")
 
 if __name__ == "__main__":
     main()
