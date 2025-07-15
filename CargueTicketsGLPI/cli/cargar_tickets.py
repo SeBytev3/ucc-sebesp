@@ -112,7 +112,7 @@ def main():
             tid = create_ticket(token, start_dt, t["case"], t["problem"])
             add_actor(token, tid, TECH_ID, 2)   # Técnico
             add_actor(token, tid, TECH_ID, 1)   # Solicitante
-            time.sleep(1)
+            time.sleep(0.2)
 
             add_solution(token, tid, t["solution"], solved_dt, tipo_id)
             set_resolved(token, tid, solved_dt)

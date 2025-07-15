@@ -1,13 +1,151 @@
 # ---------------- Tickets del 2 de julio al 14 de julio de 2025 ----------------
 
-- date: 2025-07-02
-  case: TEST2
-  problem: Problem text 2
-  solution: Solution text 2
+- date: 2025-07-04
+  case: Revision impresora norte no funciona
+  problem: Reportan que la impresora de la sede norte no funciona
+  solution: Se valida y se encuentra que la rueda de tamaño de papel de la bandeja 1 no esta en la posicion correcta, se corrige y queda ok
   solution_type: 2  # Correctiva
 
-- date: 2025-07-02
-  case: TEST1
-  problem: Problem text 1
-  solution: Solution text 1
+- date: 2025-07-04
+  case: Desbloqueo temporal de cuenta quiter
+  problem: Angie solicita el desbloqueo temporal de una cuenta quiter duplicada para poder acomodar una factura a esa cuenta y moverla a la cuenta correcta
+  solution: 
+  solution_type: 5  # Parametrización
+
+- date: 2025-07-05
+  case: Revisión internet televisor Colision
+  problem: Se solicita revisar el internet de ese televisor
+  solution: Se valida y configura Externo y queda ok
+  solution_type: 5  # Parametrización
+
+- date: 2025-07-05
+  case: Instalación de VPN y Quiter en equipo personal de Stiven Vargas
+  problem: Solicita estas instalaciones para gestionar pedidos desde casa
+  solution: Se realiza la instalación de la VPN SonicWall y Quiter
+  solution_type: 5  # Parametrización
+
+- date: 2025-07-07
+  case: Falla conexión compartida Windows 11
+  problem: Ramiro reporta que no puede acceder a las compartidas
+  solution: Se valida y se corre el script para activar SMB y acceso a recursos compartidos para Windows 11 - Se valida y queda ok.
+  solution_type: 5  # Parametrización
+
+- date: 2025-07-07
+  case: Instalación Renting en Posventa JAC
+  problem: Se reporta desde hace días que la aplicación de renting no funciona
+  solution: Se valida con un manual enviado y se borra todas las carpetas dentro de %localappdata%/Apps, la guía dice que solo el contenido dentro de las carpetas, se comprueba y todo funciona bien
+  solution_type: 2  # Correctiva
+
+- date: 2025-07-07
+  case: Configuración clave AnyDesk para Mauricio Laverde
+  problem: Solicita configurar la clave pues se le olvidó
+  solution: Se realiza el procedimiento solicitado y se hacen pruebas, queda ok
+  solution_type: 5  # Parametrización
+
+- date: 2025-07-07
+  case: Actualización Windows 11 JefePosventaJAC
+  problem: Se programa actualización de Windows 11 a PC de Jefe Posventa JAC
+  solution: Se realiza actualización de windows 11 en el equipo de Jaime
+  solution_type: 5  # Parametrización
+
+- date: 2025-07-07
+  case: Activación cifrado Jaime Ballesteros
+  problem: Se programa activación de cifrado
+  solution: Se realiza la activación del cifrado de ESET de manera correcta, se explica razones y se enseña la contraseña a Jaime
+  solution_type: 5  # Parametrización
+
+- date: 2025-07-07
+  case: Configuración clave AnyDesk para Leonela
+  problem: Solicita configurar la clave en el equipo de Jose Luis
+  solution: Se realiza el procedimiento solicitado, se instala anydesk de TI para que no tenga que esperar tiempo y se hacen pruebas, queda ok
+  solution_type: 5  # Parametrización
+
+- date: 2025-07-07
+  case: Cambio placa LYM975
+  problem: Alex Gaviria lo solicita porque tiene un espacio al final
+  solution: Se quita el espacio y se confirma con Alex
+  solution_type: 2  # Correctiva
+
+- date: 2025-07-07
+  case: Actualización Windows 11 Gerente Admin
+  problem: Se programa actualización de Windows 11 a PC de la gerente administrativa
+  solution: Se realiza actualización de windows 11 en el equipo de Gloria Cerquera
+  solution_type: 5  # Parametrización
+
+- date: 2025-07-07
+  case: Activación cifrado y actualización de programas Gloria Cerquera
+  problem: Se programa actualización de programas y activación de cifrado
+  solution: Se realiza la actualización de programas como el PDF XChange, se reemplazan Peazip y 7zip por Nanazip, se cambia VLC por K-lite, se optimiza el sistema y se enseña la contraseña a Gloria
+  solution_type: 5  # Parametrización
+
+- date: 2025-07-07
+  case: Revisión clave Wifi Invitados Colision
+  problem: Ramiro reporta que no funciona la clave de Invitados
+  solution: Se valida y es porque el cliente no puede acceder al portal cautivo, equipo con windows 11, se configura Externo como forma de mitigar
+  solution_type: 2  # Correctiva
+
+- date: 2025-07-07
+  case: Cambio contraseña Quiter Elber
+  problem: Solicita cambiar la contraseña por una mas personalizada
+  solution: Se realiza el cambio a nivel de administración, ya que a nivel de usuario no le permitió
+  solution_type: 5  # Parametrización
+
+- date: 2025-07-08
+  case: Revision correo no funciona
+  problem: Carol reporta que el cliente de correo no funciona correctamente, se bloquea al momento de redactar un correo
+  solution: Se revisa y se cierra el proceso directamente, se valida y queda ok.
+  solution_type: 2  # Correctiva
+
+- date: 2025-07-08
+  case: Asignación permiso de Auxtesoreria en Quiter a supernumeraria
+  problem: Se solicitan los permisos para reemplazar a Monica
+  solution: Se conceden los permisos para poder cumplir con lo requerido y queda ok
+  solution_type: 5  # Parametrización
+
+- date: 2025-07-11
+  case: Capacitación QSigner ComKIA Norte
+  problem: Programada por don Andrés
+  solution: Se capacita a los comerciales kia en sede norte sobre el uso de qsigner, así mismo, se realiza configuración del celular
+  solution_type: 5  # Parametrización
+
+- date: 2025-07-11
+  case: Revisión ingreso RUNT desde el pc de Sandra Quintero
+  problem: Bloqueado por certificado
+  solution: Se verifica y era porque se cambio de com a gov.
+  solution_type: 2  # Correctiva
+
+- date: 2025-07-11
+  case: Desbloqueo equisoft.app Rocio
+  problem: Rocio solicita que se desbloquee la pagina equisoft.app, pagina de un renting
+  solution: Se realiza la adición de esa pagina en los permitidos del control web facturación, se comprueba y queda ok
+  solution_type: 5  # Parametrización
+
+- date: 2025-07-11
+  case: Revision Dixson equipo de mesa lento
+  problem: Dixson reporta que el equipo está lento
+  solution: Se valida y tiene la memoria RAM, se corrige haciendo liberación de RAM con una herramienta y queda ok
+  solution_type: 2  # Correctiva
+
+- date: 2025-07-11
+  case: Error accediendo a pagina del runt
+  problem: Sandra reporta que no puede acceder a la pagina del runt, envía un pantallazo dondese muestra que el certificado no es valido
+  solution: Se revisa y la pagina del runt cambio la extensión de .com a .gov, por eso no cargaba
+  solution_type: 2  # Correctiva
+
+- date: 2025-07-11
+  case: Revision correos Kelly que no salían
+  problem: Reporta que no salen correo a la señora Saavedra
+  solution: Se valida y es por la composición del correo que está enviando
+  solution_type: 2  # Correctiva
+
+- date: 2025-07-14
+  case: Modificacion Movimientos Julio 2025 Tesoreria
+  problem: Se solicta ayuda para modificar el archivo de movimientos de julio de 2025 para el area de tesoreria agregando seleccion de Confirmado por y tabla por cada hoja
+  solution: Se Modifica según lo solicitado y se sube a compartidas Tesoreria
+  solution_type: 5  # Parametrización
+
+- date: 2025-07-14
+  case: Creacion plantilla tesoreria
+  problem: Se solicta ayuda para crear una plantilla para archivo de movimientos
+  solution: Se crea según lo solicitado y se sube a compartidas Tesoreria
   solution_type: 5  # Parametrización
