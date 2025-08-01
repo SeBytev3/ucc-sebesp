@@ -1,0 +1,9 @@
+pip install pyinstaller
+
+py -m venv venv
+venv\Scripts\activate
+
+pip install pyinstaller
+pip install -r requirements.txt
+
+pyinstaller --onefile --windowed --icon=iconCargueGLPI.ico --add-data "iconCargueGLPI.ico;." --add-data ".env;." --add-data "techselection.py;." glpi_gui.py

@@ -49,14 +49,21 @@ def end_session(tok: str):
     }, timeout=10)
 
 # ---- 4. Operaciones GLPI ---------------------------------------------------
-def create_ticket(tok, fecha, titulo, desc) -> int:
+def create_ticket(tok, fecha, titulo, desc, category_id=None) -> int:
+    ticket_data = {
+        "name": titulo,
+        "content": desc,
+        "date": fecha,
+        "status": 1
+    }
+    if category_id:
+        ticket_data["itilcategories_id"] = category_id
+
     r = requests.post(api("Ticket"), headers={
         "Session-Token": tok, "App-Token": APP_TOKEN,
         "Content-Type": "application/json"
-    }, data=json.dumps({"input":{
-        "name": titulo, "content": desc,
-        "date": fecha, "status": 1
-    }}), timeout=20); r.raise_for_status()
+    }, data=json.dumps({"input": ticket_data}), timeout=20)
+    r.raise_for_status()
     return r.json()["id"]
 
 def add_actor(tok, tid, uid, role):
@@ -109,7 +116,7 @@ def main():
 
             tipo_id = t.get("solution_type", 2)  # 2 por defecto
 
-            tid = create_ticket(token, start_dt, t["case"], t["problem"])
+            tid = create_ticket(token, start_dt, t["case"], t["problem"], t.get("category"))
             add_actor(token, tid, TECH_ID, 2)   # Técnico
             add_actor(token, tid, TECH_ID, 1)   # Solicitante
             time.sleep(0.2)
