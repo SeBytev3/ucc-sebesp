@@ -6,17 +6,18 @@
 *.gpg
 *.env
 
-.dbeaver/credentials-config.json
+.dbeaver/
+*.project
 build
 target
 
+
 */venv/*
-*/.venv/*
+*/.venv/
 */__pycache__/*
 
-.vscode/*
+.vscode/
 
-datingApp-master/
 Analisis de Datos/
 
 /2501-GBD/Proyecto Final/respaldo/logs.txt
