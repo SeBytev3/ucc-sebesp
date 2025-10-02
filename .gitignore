@@ -17,6 +17,7 @@ target
 */__pycache__/*
 
 .vscode/
+.project
 
 Analisis de Datos/
 
