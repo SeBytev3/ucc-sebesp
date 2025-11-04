@@ -1,468 +1,84 @@
-- date: 2025-07-16
-  case: Novedad con correo corporativo
-  problem: Problemas de envío en el buzón de caja Pasoancho
-  solution: Se validó la sesión, se reactivó el buzón desde el servidor y se sincronizó la cuenta en cliente Outlook
-  solution_type: 2  # Reparación
-  category: 26  # Falla de correo corporativo
-
-- date: 2025-07-16
-  case: Solicitud de actualización de inventario
-  problem: Actualización de archivo de equipos a migrar a Windows 11
-  solution: Se accedió a cada equipo registrado, se corroboró compatibilidad de hardware y se actualizó el documento compartido
-  solution_type: 5  # Parametrización
-  category: 7  # Actualización a W10
-
-- date: 2025-07-16
-  case: Solicitud de actualización a Windows 11
-  problem: Financieras con equipos antiguos solicitaron actualización
-  solution: Se validó compatibilidad, se descargó ISO oficial, se ejecutó instalación limpia y se configuraron perfiles y aplicaciones
-  solution_type: 5  # Parametrización
-  category: 15  # Actualización a W11
-
-- date: 2025-07-16
-  case: Solicitud de actualización de Windows 11
-  problem: Muchacha de Usados Pasoancho requiere migración a Windows 11
-  solution: Se formateó el equipo, se actualizó SO a Windows 11 y se instalaron aplicaciones de trabajo
-  solution_type: 5  # Parametrización
-  category: 15  # Actualización a W11
-
-- date: 2025-07-16
-  case: Solicitud de actualización de Windows 11
-  problem: Solicitud de instalación para Constain
-  solution: Se realizó respaldo, instalación de Windows 11, activación por licencia y se restauró respaldo
-  solution_type: 5  # Parametrización
-  category: 15  # Actualización a W11
-
-- date: 2025-07-16
-  case: Solicitud de actualización de Windows 11
-  problem: Requerimiento del diseñador gráfico para actualizar su equipo
-  solution: Se actualizó sistema operativo, se instalaron drivers gráficos y suite de diseño Adobe
-  solution_type: 5  # Parametrización
-  category: 15  # Actualización a W11
-
-- date: 2025-07-16
-  case: Solicitud de migración de Outlook PST
-  problem: Migración del archivo PST de Asisventas 2017 a Paola Lame
-  solution: Se extrajo archivo desde respaldo, se importó en Outlook y se validó toda la información histórica
-  solution_type: 5  # Parametrización
-  category: 1  # Soporte/Configuración
-
-- date: 2025-07-17
-  case: Novedad con red en Pasoancho
-  problem: Internet intermitente en Pasoancho
-  solution: Se revisó cableado, router y puntos de acceso, ajustando configuración DHCP para evitar conflictos
-  solution_type: 2  # Reparación
-  category: 8  # Falla Red Wifi
-
-- date: 2025-07-17
-  case: Solicitud de configuración de impresora
-  problem: Impresora de Pasoancho para asesor comercial
-  solution: Se instaló controlador, se asignó IP estática a impresora y se validó desde perfil del asesor
-  solution_type: 5  # Parametrización
-  category: 5  # Falla de Impresora
-
-- date: 2025-07-17
-  case: Novedad con impresora
-  problem: Problema de memoria en impresora de Pasoancho
-  solution: Se reinició el equipo, se actualizó firmware y se configuró impresión en modo borrador
-  solution_type: 2  # Reparación
-  category: 5  # Falla de Impresora
-
-- date: 2025-07-17
-  case: Solicitud de capacitación ISO
-  problem: Capacitación ISO en sede norte
-  solution: Se realizó acompañamiento a personal en uso de herramientas y procesos según normativa ISO
-  solution_type: 4  # Falla de Software
-  category: 1  # Soporte/Configuración
-
-- date: 2025-07-17
-  case: Novedad con impresora en usados
-  problem: Falla general en impresora de sede Almotores Usados
-  solution: Se contactó soporte técnico externo para diagnóstico físico
-  solution_type: 2  # Reparación
-  category: 5  # Falla de Impresora
-
-- date: 2025-07-17
-  case: Solicitud de traslado de periféricos
-  problem: Recolección de USB WiFi en AdmImport para sede Norte
-  solution: Se inventarió y trasladó material, dejando constancia del registro de dispositivos
-  solution_type: 5  # Parametrización
-  category: 1  # Soporte/Configuración
-
-- date: 2025-07-17
-  case: Solicitud de red WiFi
-  problem: Configurar red WiFi para Nini Johanna
-  solution: Se conectó a red segura, se configuraron credenciales y se validó acceso a servicios internos
-  solution_type: 5  # Parametrización
-  category: 8  # Falla Red Wifi
-
-- date: 2025-07-18
-  case: Solicitud de eliminación de credenciales
-  problem: Eliminación de credenciales de Maritza Mosquera
-  solution: Se eliminaron accesos en dominio, correo y plataformas internas; se confirmó bloqueo de ingreso desde dispositivos previos
-  solution_type: 5  # Parametrización
-  category: 1  # Soporte/Configuración
-
-- date: 2025-07-18
-  case: Novedad con instalación de red TIGO
-  problem: Espera de instalación de red por parte de TIGO, nunca pasó
-  solution: Se dejó registro del incumplimiento del proveedor y se trasladó la operación a sede 39 como plan de contingencia
-  solution_type: 2  # Reparación
-  category: 6  # Falla Canales Comunicación (MPLS/Internet)
-
-- date: 2025-07-19
-  case: Novedad con conexión a internet
-  problem: Novedad en equipo de Daniela (ADM-Import), sin conexión
-  solution: Se identificó que el navegador estaba cargando datos corruptos por exceso de caché, se realizó limpieza total y restablecimiento
-  solution_type: 2  # Reparación
-  category: 8  # Falla Red Wifi
-
-- date: 2025-07-21
-  case: Solicitud de revisión de cámaras
-  problem: Revisión de cámaras de seguridad con César Amado
-  solution: Se verificó grabación en NVR, visualización remota desde celular y ajustes de zonas de detección de movimiento
-  solution_type: 4  # Falla de Software
+# ---------------- Tickets del 01 de noviembre de 2025 ----------------
+- date: 2025-11-01
+  case: Revisión Cámaras 04/11/2025
+  problem: Se comienza la revisión de DVRs Norte Admon, Taller y Colisión
+  solution: Se realiza reporte de revisión de DVRs Norte Admon, Taller y Colisión
+  solution_type: 4  # Preventiva
   category: 30  # Revisión de Cámaras
 
-- date: 2025-07-21
-  case: Solicitud de validación de red
-  problem: Validación de red MiFi en sede ADM-Import
-  solution: Se conectaron varios dispositivos de prueba, se midió velocidad y se reajustaron canales de frecuencia
-  solution_type: 4  # Falla de Software
-  category: 8  # Falla Red Wifi
-
-- date: 2025-07-21
-  case: Solicitud de eliminación de credenciales
-  problem: Eliminación de credenciales de Jiseth Parra
-  solution: Se eliminó cuenta de red, buzón de correo y usuario de software de gestión
-  solution_type: 5  # Parametrización
-  category: 1  # Soporte/Configuración
-
-- date: 2025-07-21
-  case: Solicitud de revisión general de cámaras
-  problem: Validación de cámaras de 39, Pasoancho, Usados y Serviteca
-  solution: Se inspeccionó cada punto de monitoreo, se actualizó firmware de algunos dispositivos y se ajustaron campos de visión
-  solution_type: 4  # Falla de Software
-  category: 30  # Revisión de Cámaras
-
-- date: 2025-07-21
-  case: Solicitud de organización de equipos
-  problem: Acomodar listado de equipos en mantenimiento
-  solution: Se revisó inventario, se cruzó con los registros técnicos y se ordenó por prioridad y sede en hoja de cálculo
-  solution_type: 4  # Falla de Software
+- date: 2025-11-01
+  case: Revisión Planta 04/11/2025
+  problem: Se comienza revisión de Planta Norte
+  solution: Se realiza revisión y envío de formulario; todo en orden
+  solution_type: 4  # Preventiva
   category: 9  # Mantenimiento Preventivo
 
-- date: 2025-07-22
-  case: Solicitud de instalación de red TIGO
-  problem: Instalación de red ORG-ALMOTORES de TIGO en ADM-Import
-  solution: Se conectó nuevo router, se configuró nombre de red, contraseña, DHCP y pruebas de conectividad con 4 equipos
-  solution_type: 5  # Parametrización
-  category: 6  # Falla Canales Comunicación (MPLS/Internet)
+- date: 2025-11-01
+  case: Actualizar contraseña Narobial Dairo Colisión
+  problem: No puede ingresar a Narobial por contraseña
+  solution: Se realiza restablecimiento de la contraseña y se comprueba el ingreso
+  solution_type: 2  # Correctiva
+  category: 1  # Soporte/Configuración
 
-- date: 2025-07-22
-  case: Solicitud de eliminación de credenciales
-  problem: Eliminación de credenciales de 3 conductores
-  solution: Se retiraron accesos desde dominio, Google Workspace y aplicaciones móviles, cerrando sesiones activas
+- date: 2025-11-01
+  case: Instalación tablet coordinador Taller Colisión
+  problem: Tablet actualizada sin apps ni cuenta Gmail configurada
+  solution: Se configura cuenta Google, se instalan apps de Colisión y se desactivan tiendas
   solution_type: 5  # Parametrización
   category: 1  # Soporte/Configuración
 
-- date: 2025-07-22
-  case: Solicitud de cambio de equipos
-  problem: Cambio de equipos del Call Center
-  solution: Se retiraron equipos anteriores, se instalaron los nuevos con Quiter, correo, Chrome y antivirus corporativo, realizando pruebas en cada estación
+- date: 2025-11-01
+  case: Cargue Provisión Movistar
+  problem: Jessica solicita cargue del archivo de provisión de Movistar
+  solution: Se realiza el cargue del archivo enviado de manera exitosa con Ref. 79939977
   solution_type: 5  # Parametrización
-  category: 31  # Alistamiento de Equipo
+  category: 1  # Soporte/Configuración
 
-- date: 2025-07-23
-  case: Solicitud de configuración de impresora
-  problem: Configurar impresora para Antonio Solórzano
-  solution: Se instaló la impresora en red, se agregaron controladores en su equipo y se ejecutó prueba de impresión
+- date: 2025-11-01
+  case: Revisión WhatsApp dczambrano
+  problem: No puede acceder a WhatsApp Web
+  solution: Se recomienda WhatsApp para Windows; se configura la cuenta y se explica el uso
   solution_type: 5  # Parametrización
-  category: 5  # Falla de Impresora
+  category: 1  # Soporte/Configuración
 
-- date: 2025-07-23
-  case: Novedad con impresora en AdmImport
-  problem: La impresora no era detectada por el equipo
-  solution: Se comprobó que el equipo estaba conectado a una red externa, se reubicó al dominio y se reestableció conexión con la impresora
-  solution_type: 2  # Reparación
-  category: 5  # Falla de Impresora
-
-- date: 2025-07-23
-  case: Solicitud de configuración de QDevices
-  problem: Configuración de QDevices para asesores de sede 39
-  solution: Se instaló la aplicación QDevices, se sincronizó con el sistema y se vinculó a los perfiles individuales
+- date: 2025-11-01
+  case: Instalación y configuración QSigner / QDevices dczambrano
+  problem: No tiene configurada la conexión de QDevice
+  solution: Se realiza la instalación y queda ok
   solution_type: 5  # Parametrización
   category: 38  # Integraciones IVUO - QUITER
 
-- date: 2025-07-23
-  case: Solicitud de configuración de MiFi
-  problem: Asignación de MiFi a César Marín
-  solution: Se entregó dispositivo MiFi, se configuró acceso y se realizaron pruebas de conexión en su equipo
-  solution_type: 5  # Parametrización
-  category: 8  # Falla Red Wifi
+- date: 2025-11-01
+  case: Error sesiones Quiter dbarreiro (htop)
+  problem: No puede acceder a Quiter por sesiones abiertas
+  solution: Se validan sesiones por SSH con htop; se cierran las dos de Daniela y se comprueba ingreso
+  solution_type: 2  # Correctiva
+  category: 2  # Quiter
 
-- date: 2025-07-23
-  case: Solicitud de red en datáfono
-  problem: Configurar red en datáfono de Isabel Villegas
-  solution: Se conectó el dispositivo a la red segura, se verificó transacción de prueba y estado de conectividad
-  solution_type: 5  # Parametrización
-  category: 1  # Soporte/Configuración
+- date: 2025-11-01
+  case: Revisión contraseña Quiter David Caicedo
+  problem: No puede ingresar a Quiter por contraseña incorrecta
+  solution: Se valida cambio previo, se restablece de nuevo y se valida ingreso con el usuario
+  solution_type: 2  # Correctiva
+  category: 2  # Quiter
 
-- date: 2025-07-23
-  case: Solicitud de reunión de TI
-  problem: Reunión del equipo de TI entre las 2:30 y 4:00 p.m.
-  solution: Se documentaron compromisos del equipo y se revisaron pendientes críticos de soporte
-  solution_type: 4  # Falla de Software
-  category: 1  # Soporte/Configuración
-
-- date: 2025-07-23
-  case: Solicitud de firma digital
-  problem: Configuración de firma digital para Has Bleidy
-  solution: Se instaló certificado digital, se configuró Acrobat Reader DC y se validó la firma con documento institucional
+- date: 2025-11-01
+  case: Revisión Macro Nómina Tesorería BBVA
+  problem: Se requiere macro para agilizar carga por formato plano BBVA distinto a AV Villas
+  solution: Se desarrolla macro ajustada al archivo plano BBVA; queda funcionando correctamente
   solution_type: 5  # Parametrización
   category: 1  # Soporte/Configuración
 
-- date: 2025-07-23
-  case: Solicitud de firma digital
-  problem: Configuración de firma digital para asesores de Usados
-  solution: Se configuraron múltiples equipos con certificados, se probó firma individual y se dejó instructivo
+- date: 2025-11-01
+  case: Cargue nómina Tesorería
+  problem: Mónica envía los archivos de nómina de Tesorería
+  solution: Se realiza el cargue de los archivos enviados de manera exitosa
   solution_type: 5  # Parametrización
-  category: 1  # Soporte/Configuración
+  category: 32  # Cargue Nomina
 
-- date: 2025-07-23
-  case: Solicitud de cambio de contraseña
-  problem: Cambio de contraseña para Kelly Montenegro
-  solution: Se realizó restablecimiento en el dominio, se solicitó nuevo inicio de sesión y se validó el ingreso correcto
+- date: 2025-11-01
+  case: Cargue nómina Talento Humano VW AT MD
+  problem: Mauricio Laverde envía archivos de nómina de VW AT MD
+  solution: Se realiza el cargue de los archivos de manera exitosa; AM queda pendiente para el día siguiente
   solution_type: 5  # Parametrización
-  category: 1  # Soporte/Configuración
-
-- date: 2025-07-24
-  case: Novedad con pantalla de citas
-  problem: Pantalla de citas de posventa 39 no responde
-  solution: Se revisaron conexiones HDMI, fuente de alimentación y configuración de pantalla extendida
-  solution_type: 2  # Reparación
-  category: 3  # Falla de hardware
-
-- date: 2025-07-24
-  case: Novedad con red en equipo
-  problem: Equipo de Jaime Velásquez sin acceso a red en posventa 39
-  solution: Se revisó adaptador de red, se renovó IP y se restableció acceso por cable Ethernet
-  solution_type: 2  # Reparación
-  category: 8  # Falla Red Wifi
-
-- date: 2025-07-24
-  case: Solicitud de configuración de doble clic
-  problem: Activar doble clic para abrir correos
-  solution: Se ajustó configuración del mouse en panel de control y se hizo prueba con cliente de correo
-  solution_type: 5  # Parametrización
-  category: 1  # Soporte/Configuración
-
-- date: 2025-07-24
-  case: Novedad con teclado
-  problem: Teclado de Gustavo no permite Ctrl+C ni Ctrl+V
-  solution: Se limpió teclado, se probó en otro equipo y se reemplazó por falla física
-  solution_type: 2  # Reparación
-  category: 3  # Falla de hardware
-
-- date: 2025-07-24
-  case: Novedad con audio en navegador
-  problem: Agente de Call Center no escuchaba audios en respond.io
-  solution: Se vació caché del navegador, se restauró configuración de audio y se verificó hardware
-  solution_type: 2  # Reparación
-  category: 4  # Falla de Software
-
-- date: 2025-07-24
-  case: Novedad con conexión en pantalla de citas
-  problem: Pantalla de citas de posventa 39 sin conexión a internet
-  solution: Se reconectó a red WiFi, se configuró IP manual y se validó acceso al sistema
-  solution_type: 2  # Reparación
-  category: 8  # Falla Red Wifi
-
-- date: 2025-07-24
-  case: Solicitud de configuración de correo
-  problem: Correo de Karol en celular corporativo
-  solution: Se configuró cuenta en aplicación móvil, se validó sincronización y acceso a calendario
-  solution_type: 5  # Parametrización
-  category: 26  # Falla de correo corporativo
-
-- date: 2025-07-24
-  case: Solicitud de capacitación
-  problem: Explicación de QDevices a nuevo asesor
-  solution: Se brindó capacitación funcional en uso de QDevices, sincronización y carga de datos
-  solution_type: 4  # Falla de Software
-  category: 38  # Integraciones IVUO - QUITER
-
-- date: 2025-07-24
-  case: Solicitud de configuración de impresora
-  problem: Configuración de impresora para asesor comercial de Usados
-  solution: Se conectó impresora, se configuró por red local y se probó impresión en sistema
-  solution_type: 5  # Parametrización
-  category: 5  # Falla de Impresora
-
-- date: 2025-07-24
-  case: Solicitud de código de autenticación
-  problem: Código de autenticación para garantiasderenault@almotores.com
-  solution: Se generó nuevo código desde portal de correo y se compartió con el usuario
-  solution_type: 5  # Parametrización
-  category: 1  # Soporte/Configuración
-
-- date: 2025-07-25
-  case: Solicitud de recuperación de archivo
-  problem: Recuperar archivo eliminado de Oswaldo Rivera
-  solution: Se restauró desde versión anterior del sistema y se respaldó en OneDrive
-  solution_type: 2  # Reparación
-  category: 33  # Backups
-
-- date: 2025-07-25
-  case: Solicitud de configuración de correo
-  problem: Configurar correo corporativo de Diana Cortés (Usados)
-  solution: Se configuró correo en Outlook, se sincronizó buzón e instaló firma digital
-  solution_type: 5  # Parametrización
-  category: 26  # Falla de correo corporativo
-
-- date: 2025-07-25
-  case: Solicitud de traslado de pantalla
-  problem: Traslado de pantalla a sede Norte
-  solution: Se embala el equipo, se transporta físicamente y se deja funcionando en nuevo escritorio
-  solution_type: 5  # Parametrización
-  category: 35  # Traslado de Equipo
-
-- date: 2025-07-25
-  case: Solicitud de creación de usuario en SAASCO
-  problem: Creación de acceso para Eyder Balanta
-  solution: Se creó usuario en SAASCO, se configuraron permisos y se validó acceso correcto
-  solution_type: 5  # Parametrización
-  category: 28  # SAASCO
-
-- date: 2025-07-25
-  case: Solicitud de configuración de cuenta y firma
-  problem: Configuración de firma y correo a Eyder Balanta
-  solution: Se configuró Outlook, se creó firma institucional y se validó funcionamiento general
-  solution_type: 5  # Parametrización
-  category: 1  # Soporte/Configuración
-
-- date: 2025-07-25
-  case: Solicitud de red para asesores
-  problem: Configurar red ORG-ALMOTORES en asesores 39
-  solution: Se conectaron los equipos a la nueva red, se verificó acceso a internet y al servidor de archivos
-  solution_type: 5  # Parametrización
-  category: 8  # Falla Red Wifi
-
-- date: 2025-07-25
-  case: Solicitud de configuración de impresora
-  problem: Configurar impresora para Israel
-  solution: Se instaló y configuró la impresora, se asignó como predeterminada y se probó desde sistema de gestión
-  solution_type: 5  # Parametrización
-  category: 5  # Falla de Impresora
-
-- date: 2025-07-25
-  case: Solicitud de revisión de cámaras
-  problem: Revisión de cámaras para gerencia administrativa
-  solution: Se revisaron cámaras, se ajustó el ángulo de visión y se validó almacenamiento de grabaciones
-  solution_type: 4  # Falla de Software
-  category: 30  # Revisión de Cámaras
-
-- date: 2025-07-26
-  case: Solicitud de traslado de equipos
-  problem: Traslado de equipos del Call Center (8 a 10 a.m.)
-  solution: Se desmontaron los equipos de sus estaciones anteriores, se trasladaron físicamente, se conectaron y probaron en sus nuevos puestos operativos
-  solution_type: 5  # Parametrización
-  category: 35  # Traslado de Equipo
-
-- date: 2025-07-26
-  case: Novedad con impresión
-  problem: Constain no podía imprimir porque tenía activo el OpenVPN
-  solution: Se desactivó temporalmente el VPN para restablecer el canal de impresión local, se reconfiguró la cola de impresión
-  solution_type: 2  # Reparación
-  category: 5  # Falla de Impresora
-
-- date: 2025-07-28
-  case: Solicitud de edición de imagen
-  problem: Recortes de María Andrea
-  solution: Se editaron las imágenes con los recortes solicitados y se almacenaron en la carpeta compartida para revisión
-  solution_type: 5  # Parametrización
-  category: 1  # Soporte/Configuración
-
-- date: 2025-07-28
-  case: Solicitud de edición de imagen
-  problem: Recortes de Isabela del Call Center
-  solution: Se procesaron las imágenes requeridas con recortes específicos y se entregaron vía drive interno
-  solution_type: 5  # Parametrización
-  category: 1  # Soporte/Configuración
-
-- date: 2025-07-28
-  case: Solicitud de entrega de celular
-  problem: Entrega de celular a Daniela Viñasco (taller.posventa.kia39@gmail.com)
-  solution: Se registró el equipo como entregado, se configuró correo, seguridad y conexión a red móvil
-  solution_type: 5  # Parametrización
-  category: 1  # Soporte/Configuración
-
-- date: 2025-07-29
-  case: Novedad con correo de usuario
-  problem: Gustavo reportó que su correo no funcionaba
-  solution: Se validó que la sesión se había cerrado, se reingresó al sistema y se restauró el acceso al buzón
-  solution_type: 2  # Reparación
-  category: 26  # Falla de correo corporativo
-
-- date: 2025-07-29
-  case: Solicitud de instalación de VPN
-  problem: Instalación de VPN para asesores de Pasoancho
-  solution: Se configuró cliente VPN en cada equipo, se asignó usuario y se validó conexión al servidor corporativo
-  solution_type: 5  # Parametrización
-  category: 1  # Soporte/Configuración
-
-- date: 2025-07-29
-  case: Solicitud de configuración de QDevices
-  problem: Configuración de QDevices para usuario cvalenciac
-  solution: Se descargó la aplicación, se activó con el código de empresa y se vinculó con el perfil de usuario
-  solution_type: 5  # Parametrización
-  category: 38  # Integraciones IVUO - QUITER
-
-- date: 2025-07-29
-  case: Novedad con equipo de asesor comercial
-  problem: Equipo con problemas de WiFi por antigüedad
-  solution: Se realizó limpieza interna, reinstalación de drivers y se recomendó reemplazo por bajo rendimiento
-  solution_type: 2  # Reparación
-  category: 3  # Falla de hardware
-
-- date: 2025-07-30
-  case: Solicitud de alistamiento de equipo
-  problem: Alistamiento de equipo para Luis Alejandro Largo
-  solution: Se instaló sistema operativo, configuraciones básicas, software corporativo, y se dejó listo para entrega
-  solution_type: 5  # Parametrización
-  category: 31  # Alistamiento de Equipo
-
-- date: 2025-07-30
-  case: Solicitud de instalación de VPN
-  problem: VPN para asesores de Pasoancho
-  solution: Se configuró acceso remoto, autenticación segura y se hicieron pruebas con el servidor
-  solution_type: 5  # Parametrización
-  category: 1  # Soporte/Configuración
-
-- date: 2025-07-30
-  case: Novedad con impresora de tickets
-  problem: Falla en impresora de tickets en posventa 39
-  solution: Se revisó el estado del cabezal, se reinició spooler de impresión y se probó ticket de prueba
-  solution_type: 2  # Reparación
-  category: 5  # Falla de Impresora
-
-- date: 2025-07-30
-  case: Solicitud de instalación de equipo remoto
-  problem: Equipo remoto para CRM (antes pertenecía a Yesenia Delgado)
-  solution: Se restauró imagen del sistema, se configuraron accesos al CRM y se cambió nombre de usuario
-  solution_type: 5  # Parametrización
-  category: 31  # Alistamiento de Equipo
-
-- date: 2025-07-30
-  case: Solicitud de eliminación de credenciales
-  problem: Eliminación de credenciales de Yesenia Delgado
-  solution: Se desactivaron accesos al dominio, correo y CRM, y se bloqueó acceso desde IP previa
-  solution_type: 5  # Parametrización
-  category: 1  # Soporte/Configuración
-
-- date: 2025-07-31
-  case: Novedad con correo corporativo
-  problem: Walther Pérez (Pasoancho) no podía acceder al correo
-  solution: Se validó error de autenticación, se reestableció contraseña y se realizó ingreso guiado
-  solution_type: 2  # Reparación
-  category: 26  # Falla de correo corporativo
+  category: 32  # Cargue Nomina

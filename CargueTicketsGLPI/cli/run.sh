@@ -1,3 +1,3 @@
-#pip install -r requirements.txt
+pip install -r requirements.txt
 
-python cargar_tickets.py
+#python cargar_tickets.py
