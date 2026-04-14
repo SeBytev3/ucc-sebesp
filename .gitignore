@@ -3,7 +3,8 @@
 .vscode/
 .project
 *.project
-**/techselection.py
+CargueTicketsGLPI/cli/techselection.py
+CargueTicketsGLPI/gui/techselection.py
 
 # Python
 **/__pycache__/
