@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Factura Exacta</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="factura">
+
+    <!-- RECTÁNGULO CLIENTE -->
+    <div class="rectangulo box-cliente">
+
+        <!-- LABELS -->
+        <div class="label label-fecha">Fecha: ___________________________</div>
+        <div class="label label-cliente">Cliente: _______________________________</div>
+        <div class="label label-nit">NIT: _________________</div>
+        <div class="label label-direccion">Dirección: _____________________________</div>
+        <div class="label label-telefono">Tel: _________________</div>
+
+        <!-- INPUTS -->
+        <label class="campo fecha">25 Marzo 2026</label>
+        <label class="campo cliente2">Esther Julia Giraldo Ruiz</label>
+        <label class="campo nit">66.826.495</label>
+        <label class="campo direccion"> </label>
+        <label class="campo telefono"> </label>
+
+    </div>
+
+    <div class="tabla">
+        <!-- ENCABEZADO -->
+        <div class="fila encabezado">
+            <div class="col cant">Cant</div>
+            <div class="col detalle">Detalle</div>
+            <div class="col unit">V. Unit</div>
+            <div class="col total">V. Total</div>
+        </div>
+
+        <!-- FILAS -->
+        <div class="fila">
+            <div class="campo cant">1</div>
+            <div class="campo detalle">Mini Split 12000BTU 220V R410 CATEGORIA D MARCA MABE CON WIFI</div>
+            <div class="campo unit">1.092.437</div>
+            <div class="campo total">1.092.437</div>
+        </div>
+        <div class="fila">
+            <div class="campo cant">1</div>
+            <div class="campo detalle">CANALETA 60 X 40</div>
+            <div class="campo unit">37.815</div>
+            <div class="campo total">37.815</div>
+        </div>
+        <div class="fila">
+            <div class="campo cant">1</div>
+            <div class="campo detalle">BASE 12000BTU</div>
+            <div class="campo unit">21.008</div>
+            <div class="campo total">21.008</div>
+        </div>
+        <div class="fila">
+            <div class="campo cant">15</div>
+            <div class="campo detalle">CABLE ENCAUCHETADO 3 X 12</div>
+            <div class="campo unit">10.084</div>
+            <div class="campo total">151.261</div>
+        </div>
+        <div class="fila">
+            <div class="campo cant">3</div>
+            <div class="campo detalle">Tubería 1/4</div>
+            <div class="campo unit">6.471</div>
+            <div class="campo total">19.412</div>
+        </div>
+        <div class="fila">
+            <div class="campo cant">3</div>
+            <div class="campo detalle">Tubería 3/8</div>
+            <div class="campo unit">10.840</div>
+            <div class="campo total">32.521</div>
+        </div>
+        <div class="fila">
+            <div class="campo cant">10</div>
+            <div class="campo detalle">CABLE ENCAUCHETADO 4 X 14</div>
+            <div class="campo unit">8.403</div>
+            <div class="campo total">84.034</div>
+        </div>
+        <div class="fila">
+            <div class="campo cant">2</div>
+            <div class="campo detalle">RUBATEX 1/4 X 3/8</div>
+            <div class="campo unit">2.101</div>
+            <div class="campo total">4.202</div>
+        </div>
+        <div class="fila">
+            <div class="campo cant">2</div>
+            <div class="campo detalle">RUBATEX 3/8 X 3/8</div>
+            <div class="campo unit">2.941</div>
+            <div class="campo total">5.882</div>
+        </div>
+        <div class="fila">
+            <div class="campo cant">1</div>
+            <div class="campo detalle">CINTA VINILO</div>
+            <div class="campo unit">3.782</div>
+            <div class="campo total">3.782</div>
+        </div>
+        <div class="fila">
+            <input class="campo cant" placeholder="">
+            <input class="campo detalle" placeholder="">
+            <input class="campo unit" placeholder="">
+            <input class="campo total" placeholder="">
+        </div>
+        <div class="fila">
+            <input class="campo cant" placeholder="">
+            <input class="campo detalle" placeholder="">
+            <input class="campo unit" placeholder="">
+            <input class="campo total" placeholder="">
+        </div>
+        <div class="fila">
+            <input class="campo cant" placeholder="">
+            <input class="campo detalle" placeholder="">
+            <input class="campo unit" placeholder="">
+            <input class="campo total" placeholder="">
+        </div>
+        <div class="fila total-row">
+            <div class="campo cant"></div>
+            <div class="campo detalle"></div>
+            <div class="campo unit">SUBTOTAL</div>
+            <div class="campo total">1.452.353</div>
+        </div>
+        <div class="fila total-row">
+            <div class="campo cant"></div>
+            <div class="campo detalle"></div>
+            <div class="campo unit">IVA 19%</div>
+            <div class="campo total">275.947</div>
+        </div>
+        <div class="fila">
+            <input class="campo cant" placeholder="">
+            <input class="campo detalle" placeholder="">
+            <input class="campo unit" placeholder="">
+            <input class="campo total" placeholder="">
+        </div>
+    </div>
+
+    <!-- FACTURA DE VENTA -->
+    <div class="box-factura">
+        <div class="encabezado-factura">FACTURA DE VENTA</div>
+        <div class="contenido-factura">
+            <span class="numero-factura-label">N°</span>
+            <span class="numero-factura-valor">0779</span>
+        </div>
+    </div>
+
+    <div class="vertical-text">IMPRENTA DEL TRANSPORTE Y/O LAURA ISABEL LOPEZ 1.151.344.962-1 Tel.: 379 6176 - CEL.: 311 710 4885 - CALI</div>
+    <div class="nota-factura">NOTA: ESTA FACTURA DE VENTA SE ASIMILA EN TODOS SUS ASPECTOS LEGALES A UNA LETRA DE CAMBIO SEGUN (ART. 774 DEL CODIGO DE COMERCIO)</div>
+    <div class="texto-centrado">Nit. 94.378.655-9
+Régimen Simplificado</div>
+    <div class="texto-derecha">CARLOS ALBERTO TAMAYO</div>
+    <div class="texto-derecha2">Cels.: 315 397 8383 - 312 202 0455 e-mail: airescol.catt@gmail.com</div>
+    <div class="nota-detalle">Suministro e Instalación de todo tipo de aire acondicionado
+residenciales, comerciales e industriales
+Mantenimiento preventido y correctivo a toda prueba
+Auditoría técnica garantizada
+Nevecones y cuartos fríos</div>
+
+    <!-- TOTAL -->
+    <div class="box-total">
+        <div class="label-total">TOTAL $</div>
+
+        <label class="campo total-final">1'728.300</label>
+    </div>
+
+    <!-- RECIBI -->
+    <div class="box-recibi">
+        <div class="label-recibi">Recibí: _________________</div>
+
+        <label class="campo recibi"> </label>
+    </div>
+
+</div>
+
+</body>
+</html>

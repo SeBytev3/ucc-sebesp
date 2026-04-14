@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)file:///C:/Users/ASIS-INFORMATICA/Desarrollo/ReposUCC/test.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Factura Exacta</title>
+
+<style>
+body {
+    background: #ccc;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-family: Arial;
+}
+
+.factura {
+    position: relative;
+    width: 850px;
+    aspect-ratio: 0.68; /* proporción real aproximada */
+    background: url('factura.png') no-repeat center;
+    background-size: 100% 100%;
+}
+
+/* CAMPOS */
+.campo {
+    position: absolute;
+    font-size: 12px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+/* ===== ENCABEZADO ===== */
+.numero {
+    top: 16%;
+    left: 73%;
+    width: 18%;
+    text-align: center;
+    font-weight: bold;
+    color: red;
+    font-size: 18px;
+}
+
+/* ===== CLIENTE ===== */
+.cliente1 {
+    top: 26%;
+    left: 12%;
+    width: 70%;
+}
+
+.cliente2 {
+    top: 31%;
+    left: 12%;
+    width: 45%;
+}
+
+.nit {
+    top: 31%;
+    left: 60%;
+    width: 25%;
+}
+
+.direccion {
+    top: 36%;
+    left: 12%;
+    width: 45%;
+}
+
+.telefono {
+    top: 36%;
+    left: 60%;
+    width: 25%;
+}
+
+/* ===== TABLA ===== */
+.det1 { top: 44%; left: 18%; width: 36%; }
+.cant1 { top: 44%; left: 6%; width: 10%; text-align:center; }
+.unit1 { top: 44%; left: 56%; width: 12%; }
+.total1 { top: 44%; left: 70%; width: 18%; }
+
+/* ===== TOTAL ===== */
+.total-final {
+    top: 90%;
+    left: 60%;
+    width: 30%;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* ===== RECIBI ===== */
+.recibi {
+    top: 90%;
+    left: 10%;
+    width: 35%;
+}
+</style>
+</head>
+
+<body>
+
+<div class="factura">
+
+    <!-- FACTURA -->
+    <input class="campo numero" value="0835">
+
+    <!-- CLIENTES -->
+    <input class="campo cliente1" placeholder="Cliente">
+    <input class="campo cliente2" placeholder="Cliente">
+    <input class="campo nit" placeholder="NIT">
+    <input class="campo direccion" placeholder="Dirección">
+    <input class="campo telefono" placeholder="Tel">
+
+    <!-- TABLA -->
+    <input class="campo cant1" placeholder="1">
+    <input class="campo det1" placeholder="Detalle">
+    <input class="campo unit1" placeholder="0">
+    <input class="campo total1" placeholder="0">
+
+    <!-- TOTAL -->
+    <input class="campo total-final" placeholder="0">
+
+    <!-- RECIBI -->
+    <input class="campo recibi" placeholder="Firma">
+
+</div>
+
+
+</body></html>

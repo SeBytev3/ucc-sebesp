@@ -1,0 +1,12 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "description": "Frontend application for Services Marketplace Platform (Phase 2)",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'Client not yet implemented - run server only'",
+    "build": "echo 'Client not yet implemented'",
+    "test": "echo 'No tests yet'",
+    "lint": "echo 'No linting configured yet'"
+  }
+}

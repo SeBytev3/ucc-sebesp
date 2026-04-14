@@ -15,26 +15,22 @@ def main():
     signal.signal(signal.SIGINT, handle_exit)
 
     print("Cliente Python 🐍 by Sebastian Espinosa B. 😎", flush=True)
-    conn = psycopg2.connect(DB_URL)
-    cursor = conn.cursor()
-
+    
     try:
-        while True:
-            wait_time = random.randint(1, 10)  # Espera aleatoria entre 1 y 10 segundos
-            time.sleep(wait_time)
+        with psycopg2.connect(DB_URL) as conn:
+            with conn.cursor() as cursor:
+                while True:
+                    wait_time = random.randint(1, 10)  # Espera aleatoria entre 1 y 10 segundos
+                    time.sleep(wait_time)
 
-            cursor.execute("SELECT id, name FROM public.dummy")
-            results = cursor.fetchall()
+                    cursor.execute("SELECT id, name FROM public.dummy")
+                    results = cursor.fetchall()
 
-            for row in results:
-                print(f"Resultado: {row[0]} {row[1]}", flush=True)  # `flush=True` fuerza la salida inmediata
+                    for row in results:
+                        print(f"Resultado: {row[0]} {row[1]}", flush=True)  # `flush=True` fuerza la salida inmediata
 
     except Exception as e:
         print(f"Error: {e}", flush=True)
-
-    finally:
-        cursor.close()
-        conn.close()
 
 if __name__ == "__main__":
     main()
