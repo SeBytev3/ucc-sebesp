@@ -39,10 +39,11 @@ Analisis de Datos/
 **/logs/
 **/logs.txt
 
-# Datasets grandes (agrega aquí los .csv grandes que no sean de ejemplo corto)
+# Datasets grandes (aquí los .csv grandes)
 2402-SIDI/data/Crime_Data_from_2020_to_Present_20240914.csv
 2501-GBD/Proyecto Final/respaldo/logs.txt
 2502-AdD/Proyecto/Datos_de_Estaciones_de_IDEAM_y_de_Terceros_20250902.csv
+2502-AdD/Proyecto/precipitacion_valle_cauca.csv
 
 # Archivos temporales del sistema
 .DS_Store
