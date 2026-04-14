@@ -3,6 +3,7 @@
 .vscode/
 .project
 *.project
+**/techselection.py
 
 # Python
 **/__pycache__/
