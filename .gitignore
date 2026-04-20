@@ -1,6 +1,7 @@
 # IDEs, herramientas y entornos de desarrollo
 .dbeaver/
 .vscode/
+.gemini/
 
 .project
 *.project

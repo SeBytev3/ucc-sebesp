@@ -4,6 +4,8 @@ import cors from 'cors';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import { validateEnv } from './config/env';
+import authRoutes from './routes/auth.routes';
+import categoryRoutes from './routes/category.routes';
 
 // Load environment variables before validating
 dotenv.config();
@@ -31,15 +33,15 @@ app.get('/health', (_req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// API routes will be registered here
-// app.use('/api/auth', authRoutes);
+// API routes
+app.use('/api', authRoutes);
+app.use('/api', categoryRoutes);
 // app.use('/api/providers', providerRoutes);
 // app.use('/api/admin', adminRoutes);
 // app.use('/api/requests', requestRoutes);
 // app.use('/api/reviews', reviewRoutes);
 // app.use('/api/messages', messageRoutes);
 // app.use('/api/notifications', notificationRoutes);
-// app.use('/api/categories', categoryRoutes);
 
 // Global error handler
 app.use((_err: Error, _req: express.Request, res: express.Response) => {
