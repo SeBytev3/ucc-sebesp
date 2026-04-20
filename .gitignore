@@ -101,3 +101,5 @@ temp/
 
 # Prisma
 prisma/migrations/
+
+*.csv
