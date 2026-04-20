@@ -2,7 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
 }
 
 datasource db {
@@ -64,8 +65,8 @@ model User {
   // Relations
   providerProfile    ProviderProfile?
   customerRequests   ServiceRequest[]   @relation("CustomerRequests")
-  receivedMessages   Message[]          @relation("SentMessages")
-  sentMessages       Message[]          @relation("ReceivedMessages")
+  sentMessages       Message[]          @relation("SentMessages")
+  receivedMessages   Message[]          @relation("ReceivedMessages")
   notifications      Notification[]
   reviews            Review[]
 

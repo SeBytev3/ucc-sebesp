@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { UserRole } from '@prisma/client';
-import prisma from '../config/database';
+import { prisma } from '../config/database';
 
 interface RegisterInput {
   email: string;
@@ -57,7 +57,7 @@ export class AuthService {
     });
 
     // Generate JWT token
-    const token = this.generateToken(user.id, user.role);
+    const token = this.generateToken(user.id, user.role, user.languagePref);
 
     return { user, token };
   }
@@ -83,7 +83,7 @@ export class AuthService {
     }
 
     // Generate JWT token
-    const token = this.generateToken(user.id, user.role);
+    const token = this.generateToken(user.id, user.role, user.languagePref);
 
     return {
       user: {
@@ -102,20 +102,20 @@ export class AuthService {
   /**
    * Generate JWT token
    */
-  private generateToken(userId: string, role: UserRole): string {
+  private generateToken(userId: string, role: UserRole, languagePref: string): string {
     const secret = process.env.JWT_SECRET;
 
     if (!secret) {
       throw new Error('JWT_SECRET not configured');
     }
 
-    return jwt.sign({ sub: userId, role }, secret, { expiresIn: '24h' as const });
+    return jwt.sign({ sub: userId, role, lng: languagePref }, secret, { expiresIn: '24h' as const });
   }
 
   /**
    * Verify JWT token
    */
-  verifyToken(token: string): { userId: string; role: UserRole } {
+  verifyToken(token: string): { userId: string; role: UserRole; languagePref: string } {
     const secret = process.env.JWT_SECRET;
 
     if (!secret) {
@@ -125,11 +125,13 @@ export class AuthService {
     const decoded = jwt.verify(token, secret) as {
       sub: string;
       role: UserRole;
+      lng: string;
     };
 
     return {
       userId: decoded.sub,
       role: decoded.role,
+      languagePref: decoded.lng || 'es',
     };
   }
 

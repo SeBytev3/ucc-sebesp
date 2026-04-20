@@ -1,0 +1,30 @@
+{
+  "common": {
+    "welcome": "Bienvenido a la Plataforma de Mercado de Servicios",
+    "success": "Operación exitosa",
+    "error": "Ha ocurrido un error inesperado",
+    "conflict": "Ya existe un registro con esta información",
+    "not_found": "El registro solicitado no fue encontrado"
+  },
+  "auth": {
+    "unauthorized": "No autorizado para acceder a este recurso",
+    "forbidden": "No tienes los permisos necesarios",
+    "invalid_token": "Token inválido o expirado",
+    "logout_success": "Sesión cerrada exitosamente",
+    "user_not_found": "Usuario no encontrado"
+  },
+  "provider": {
+    "registration_submitted": "Registro de proveedor enviado. Esperando aprobación administrativa.",
+    "profile_not_found": "Perfil de proveedor no encontrado",
+    "resubmitted": "Perfil re-enviado para revisión.",
+    "approved": "Proveedor aprobado exitosamente",
+    "rejected": "Proveedor rechazado",
+    "deactivated": "Proveedor desactivado",
+    "commission_updated": "Tasa de comisión actualizada"
+  },
+  "validation": {
+    "required": "Este campo es requerido",
+    "invalid_email": "Formato de correo electrónico inválido",
+    "invalid_input": "Error de validación en los datos de entrada"
+  }
+}

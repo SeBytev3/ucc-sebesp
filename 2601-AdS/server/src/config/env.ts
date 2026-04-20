@@ -8,6 +8,7 @@ export function validateEnv() {
     JWT_SECRET: str(),
     JWT_EXPIRATION: str({ default: '24h' }),
     JWT_COOKIE_EXPIRATION: num({ default: 1 }),
+    UPLOAD_DIR: str({ default: 'uploads' }),
   });
 
   // Validate JWT_SECRET length manually

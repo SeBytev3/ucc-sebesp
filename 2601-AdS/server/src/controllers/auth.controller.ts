@@ -57,9 +57,9 @@ export class AuthController {
    * POST /api/auth/logout
    * Logout user (clear cookie)
    */
-  logout(_req: Request, res: Response) {
+  logout(req: Request, res: Response) {
     res.clearCookie('accessToken');
-    res.json({ message: 'Logged out successfully' });
+    res.json({ message: (req as any).t('auth.logout_success') });
   }
 
   /**
@@ -73,7 +73,7 @@ export class AuthController {
       res.status(404).json({
         error: {
           code: 'NOT_FOUND',
-          message: 'User not found',
+          message: (req as any).t('auth.user_not_found'),
         },
       });
       return;

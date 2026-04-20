@@ -7,11 +7,16 @@ import { Request, Response, NextFunction } from 'express';
 export function validate(schema: z.ZodObject<any, any>) {
   return (req: Request, res: Response, next: NextFunction): void => {
     try {
-      schema.parse({
+      const parsed = schema.parse({
         body: req.body,
         query: req.query,
         params: req.params,
       });
+
+      // Update request with coerced/transformed data
+      req.body = parsed.body;
+      req.query = parsed.query;
+      req.params = parsed.params;
 
       next();
     } catch (error) {

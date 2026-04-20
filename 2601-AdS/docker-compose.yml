@@ -1,0 +1,43 @@
+services:
+  db:
+    image: postgres:14-alpine
+    container_name: services-marketplace-db
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      POSTGRES_DB: ${DB_NAME:-services_marketplace}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: services-marketplace-backend
+    restart: always
+    command: npm run dev
+    ports:
+      - "${PORT:-4000}:4000"
+    environment:
+      DATABASE_URL: postgresql://${DB_USER:-postgres}:${DB_PASSWORD:-postgres}@db:5432/${DB_NAME:-services_marketplace}?schema=public
+      PORT: ${PORT:-4000}
+      NODE_ENV: development
+      JWT_SECRET: ${JWT_SECRET:-your-super-secret-jwt-key-replace-in-production}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-7d}
+      JWT_COOKIE_EXPIRATION: ${JWT_COOKIE_EXPIRATION:-7}
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:3000}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@marketplace.com}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-Admin123!}
+    depends_on:
+      - db
+    volumes:
+      - ./server/src:/app/src
+      - ./server/prisma:/app/prisma
+      - ./server/package.json:/app/package.json
+      - ./server/tsconfig.json:/app/tsconfig.json
+
+volumes:
+  postgres_data:

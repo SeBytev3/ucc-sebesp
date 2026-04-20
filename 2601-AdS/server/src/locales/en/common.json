@@ -1,0 +1,30 @@
+{
+  "common": {
+    "welcome": "Welcome to the Services Marketplace Platform",
+    "success": "Operation successful",
+    "error": "An unexpected error occurred",
+    "conflict": "A record with this information already exists",
+    "not_found": "The requested record was not found"
+  },
+  "auth": {
+    "unauthorized": "Unauthorized to access this resource",
+    "forbidden": "You do not have the required permissions",
+    "invalid_token": "Invalid or expired token",
+    "logout_success": "Logged out successfully",
+    "user_not_found": "User not found"
+  },
+  "provider": {
+    "registration_submitted": "Provider registration submitted. Waiting for admin approval.",
+    "profile_not_found": "Provider profile not found",
+    "resubmitted": "Profile resubmitted for review.",
+    "approved": "Provider approved successfully",
+    "rejected": "Provider rejected",
+    "deactivated": "Provider deactivated",
+    "commission_updated": "Commission rate updated"
+  },
+  "validation": {
+    "required": "This field is required",
+    "invalid_email": "Invalid email format",
+    "invalid_input": "Input validation failed"
+  }
+}

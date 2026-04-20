@@ -1,24 +1,33 @@
 import { Request, Response } from 'express';
 import { categoryService } from '../services/category.service';
 import { AuthRequest } from '../middleware/auth';
+import { localizeArray } from '../utils/i18n-utils';
 
 export class CategoryController {
   /**
    * GET /api/categories
    * List active categories (public)
    */
-  async listActive(_req: Request, res: Response) {
+  async listActive(req: Request, res: Response) {
     const categories = await categoryService.listActive();
-    res.json({ categories });
+    const lng = (req as any).language || 'es';
+    
+    res.json({ 
+      categories: localizeArray(categories, lng, ['name', 'description']) 
+    });
   }
 
   /**
    * GET /api/admin/categories
    * List all categories including inactive (admin)
    */
-  async listAll(_req: AuthRequest, res: Response) {
+  async listAll(req: AuthRequest, res: Response) {
     const categories = await categoryService.listAll();
-    res.json({ categories });
+    const lng = (req as any).language || 'es';
+
+    res.json({ 
+      categories: localizeArray(categories, lng, ['name', 'description']) 
+    });
   }
 
   /**
@@ -43,7 +52,7 @@ export class CategoryController {
    * Update category (admin)
    */
   async update(req: Request, res: Response) {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const data = req.body;
 
     const category = await categoryService.update(id, data);

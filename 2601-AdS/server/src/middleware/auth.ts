@@ -30,6 +30,11 @@ export function requireAuth(req: AuthRequest, res: Response, next: NextFunction)
     req.userId = decoded.userId;
     req.userRole = decoded.role;
 
+    // Set i18n language from user preference
+    if (decoded.languagePref && req.i18n) {
+      req.i18n.changeLanguage(decoded.languagePref);
+    }
+
     next();
   } catch (error) {
     res.status(401).json({
