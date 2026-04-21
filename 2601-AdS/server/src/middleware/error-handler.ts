@@ -70,5 +70,42 @@ export const errorHandler = (
     }
   }
 
+  // Handle known application errors
+  if (err.message === 'Email already registered') {
+    statusCode = 400;
+    response.error = {
+      code: 'BAD_REQUEST',
+      message: t('auth.email_already_registered'),
+    };
+  }
+
+  if (err.message === 'Invalid email or password') {
+    statusCode = 401;
+    response.error = {
+      code: 'UNAUTHORIZED',
+      message: t('auth.invalid_credentials'),
+    };
+  }
+
+  const badRequestErrors = [
+    'Review already exists for this request',
+    'Cannot send requests to this provider',
+    'Provider is already approved',
+    'Can only review completed requests',
+    'Can only complete accepted requests',
+    'Only the customer can submit a review',
+    'Not authorized to respond to this request',
+    'Request already has a response',
+    'Provider is already deactivated',
+  ];
+
+  if (badRequestErrors.includes(err.message)) {
+    statusCode = 400;
+    response.error = {
+      code: 'BAD_REQUEST',
+      message: err.message,
+    };
+  }
+
   res.status(statusCode).json(response);
 };

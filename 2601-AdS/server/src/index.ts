@@ -26,10 +26,11 @@ import uploadRoutes from './routes/upload.routes';
 dotenv.config();
 
 // Validate environment variables on startup
-validateEnv();
+if (process.env.NODE_ENV !== 'test') {
+  validateEnv();
+}
 
 const app = express();
-const PORT = process.env.PORT || 4000;
 const UPLOAD_DIR = process.env.UPLOAD_DIR || 'uploads';
 
 // Middleware
@@ -81,10 +82,5 @@ app.use('/api', uploadRoutes);
 
 // Global error handler (Must be after all routes)
 app.use(errorHandler);
-
-// Start server
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-});
 
 export { app };

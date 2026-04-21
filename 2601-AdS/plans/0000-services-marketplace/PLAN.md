@@ -321,27 +321,27 @@ Build the complete backend API for the services marketplace platform, including 
   > All service unit tests implemented with 85%+ total coverage.
 
 **Integration Tests (API Endpoints):**
-- [ ] Integration tests for Auth endpoints
-- [ ] Integration tests for Category endpoints
-- [ ] Integration tests for Provider endpoints
-- [ ] Integration tests for Admin endpoints
-- [ ] Integration tests for Request endpoints
-- [ ] Integration tests for Review endpoints
-- [ ] Integration tests for Message endpoints
-- [ ] Integration tests for Notification endpoints
-- [ ] Integration tests for Upload endpoints
+- [x] Integration tests for Auth endpoints
+- [x] Integration tests for Category endpoints
+- [x] Integration tests for Provider endpoints
+- [x] Integration tests for Admin endpoints
+- [x] Integration tests for Request endpoints
+- [x] Integration tests for Review endpoints
+- [x] Integration tests for Message endpoints
+- [x] Integration tests for Notification endpoints
+- [x] Integration tests for Upload endpoints
 
 **End-to-End (E2E) Workflows:**
-- [ ] Flow: Register → login → create provider profile → admin approves → profile visible in search
-- [ ] Flow: Create request → provider accepts → mark complete → leave review
-- [ ] Flow: Send message → receiver reads it → notification created
-- [ ] Flow: Reject provider → edit → resubmit → approve
+- [x] Flow: Register → login → create provider profile → admin approves → profile visible in search
+- [x] Flow: Create request → provider accepts → mark complete → leave review
+- [x] Flow: Send message → receiver reads it → notification created
+- [x] Flow: Reject provider → edit → resubmit → approve
 
 **Validation & Quality:**
-- [ ] Run test suite, verify 80%+ coverage
-- [ ] Run `npm test` and `npm run lint` — zero failures, zero warnings
-- [ ] Test API manually via Postman/curl — verify all endpoints return expected responses
-- [ ] Test edge cases: deactivated provider receives request, duplicate review submission, oversized file upload
+- [x] Run test suite, verify 80%+ coverage
+- [x] Run `npm test` and `npm run lint` — zero failures, zero warnings
+- [x] Test API manually via Postman/curl — verify all endpoints return expected responses
+- [x] Test edge cases: deactivated provider receives request, duplicate review submission, oversized file upload
 
 ### 16. Build & Deployment Prep
 

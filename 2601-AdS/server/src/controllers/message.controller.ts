@@ -1,9 +1,9 @@
-import { Response } from 'express';
+import { Response, NextFunction } from 'express';
 import { messageService } from '../services/message.service';
 import { AuthRequest } from '../middleware/auth';
 
 export class MessageController {
-  async sendMessage(req: AuthRequest, res: Response) {
+  async sendMessage(req: AuthRequest, res: Response, next: NextFunction) {
     try {
       const senderId = req.userId!;
       const { receiverId, content, requestId } = req.body;
@@ -16,12 +16,12 @@ export class MessageController {
       });
 
       res.status(201).json(message);
-    } catch (error: any) {
-      res.status(400).json({ error: error.message });
+    } catch (error) {
+      next(error);
     }
   }
 
-  async getConversation(req: AuthRequest, res: Response) {
+  async getConversation(req: AuthRequest, res: Response, next: NextFunction) {
     try {
       const currentUserId = req.userId!;
       const otherUserId = req.params.userId as string;
@@ -31,12 +31,12 @@ export class MessageController {
       const result = await messageService.getConversation(currentUserId, otherUserId, page, limit);
 
       res.json(result);
-    } catch (error: any) {
-      res.status(400).json({ error: error.message });
+    } catch (error) {
+      next(error);
     }
   }
 
-  async markAsRead(req: AuthRequest, res: Response) {
+  async markAsRead(req: AuthRequest, res: Response, next: NextFunction) {
     try {
       const userId = req.userId!;
       const messageId = req.params.messageId as string;
@@ -44,19 +44,19 @@ export class MessageController {
       await messageService.markAsRead(messageId, userId);
 
       res.status(204).send();
-    } catch (error: any) {
-      res.status(400).json({ error: error.message });
+    } catch (error) {
+      next(error);
     }
   }
 
-  async getUnreadCount(req: AuthRequest, res: Response) {
+  async getUnreadCount(req: AuthRequest, res: Response, next: NextFunction) {
     try {
       const userId = req.userId!;
       const count = await messageService.getUnreadCount(userId);
 
       res.json({ count });
-    } catch (error: any) {
-      res.status(400).json({ error: error.message });
+    } catch (error) {
+      next(error);
     }
   }
 }

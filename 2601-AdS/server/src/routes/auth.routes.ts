@@ -78,7 +78,7 @@ router.post(
  *             schema: { $ref: '#/components/schemas/Error' }
  */
 router.post(
-  '/api/auth/login', 
+  '/auth/login', 
   authRateLimiter,
   validate(loginSchema), 
   authController.login

@@ -1,17 +1,17 @@
-import { Response } from 'express';
+import { Response, NextFunction } from 'express';
 import { uploadService } from '../services/upload.service';
 import { prisma } from '../config/database';
 import { AuthRequest } from '../middleware/auth';
 
 class UploadController {
-  async uploadPortfolioImage(req: AuthRequest, res: Response): Promise<void> {
+  async uploadPortfolioImage(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
     try {
       const providerId = req.params.id as string;
       const userId = req.userId!;
       const file = req.file;
 
       if (!file) {
-        res.status(400).json({ error: 'No file uploaded' });
+        res.status(400).json({ error: { code: 'VALIDATION_ERROR', message: 'No file uploaded' } });
         return;
       }
 
@@ -21,12 +21,12 @@ class UploadController {
       });
 
       if (!profile) {
-        res.status(404).json({ error: 'Provider profile not found' });
+        res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Provider profile not found' } });
         return;
       }
 
       if (profile.userId !== userId && req.userRole !== 'ADMIN') {
-        res.status(403).json({ error: 'Not authorized to update this portfolio' });
+        res.status(403).json({ error: { code: 'FORBIDDEN', message: 'Not authorized to update this portfolio' } });
         return;
       }
 
@@ -34,12 +34,12 @@ class UploadController {
       const portfolioItem = await uploadService.uploadPortfolioImage(providerId, file, caption);
 
       res.status(201).json(portfolioItem);
-    } catch (error: any) {
-      res.status(400).json({ error: error.message });
+    } catch (error) {
+      next(error);
     }
   }
 
-  async deletePortfolioImage(req: AuthRequest, res: Response): Promise<void> {
+  async deletePortfolioImage(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
     try {
       const providerId = req.params.id as string;
       const imageId = req.params.imageId as string;
@@ -51,20 +51,20 @@ class UploadController {
       });
 
       if (!profile) {
-        res.status(404).json({ error: 'Provider profile not found' });
+        res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Provider profile not found' } });
         return;
       }
 
       if (profile.userId !== userId && req.userRole !== 'ADMIN') {
-        res.status(403).json({ error: 'Not authorized to update this portfolio' });
+        res.status(403).json({ error: { code: 'FORBIDDEN', message: 'Not authorized to update this portfolio' } });
         return;
       }
 
       await uploadService.deletePortfolioImage(imageId, providerId);
 
       res.status(204).send();
-    } catch (error: any) {
-      res.status(400).json({ error: error.message });
+    } catch (error) {
+      next(error);
     }
   }
 }
