@@ -352,8 +352,8 @@ Build the complete backend API for the services marketplace platform, including 
 - [x] Create `docker-compose.yml` with PostgreSQL + backend service (for local development)
   > Created root docker-compose.yml with 'db' (Postgres 14) and 'backend' services.
   > Includes volumes for persistence and hot-reloading.
-- [ ] Document setup steps in `server/README.md` (install, configure, migrate, seed, run)
-- [ ] Verify fresh clone can run `npm install && npm run dev` and get working API
+- [x] Document setup steps in `server/README.md` (install, configure, migrate, seed, run)
+- [x] Verify fresh clone can run `npm install && npm run dev` and get working API
 
 ## Clarifications
 
