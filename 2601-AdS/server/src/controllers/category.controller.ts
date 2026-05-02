@@ -11,7 +11,7 @@ export class CategoryController {
   async listActive(req: Request, res: Response, next: NextFunction) {
     try {
       const categories = await categoryService.listActive();
-      const lng = (req as any).language || 'es';
+      const lng = (req as any).language || req.headers['accept-language']?.slice(0, 2) || 'es';
       
       res.json({ 
         categories: localizeArray(categories, lng, ['name', 'description']) 

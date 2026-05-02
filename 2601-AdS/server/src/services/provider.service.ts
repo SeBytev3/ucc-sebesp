@@ -43,6 +43,24 @@ export class ProviderService {
     });
 
     if (existingProfile) {
+      if (existingProfile.status === ProviderStatus.REJECTED) {
+        // If rejected, we update the existing profile and set it back to PENDING
+        return await prisma.providerProfile.update({
+          where: { userId },
+          data: {
+            serviceCategoryId: input.serviceCategoryId,
+            bio: input.bio,
+            locationCity: input.locationCity,
+            locationRegion: input.locationRegion,
+            status: ProviderStatus.PENDING,
+            rejectionReason: null,
+          },
+          include: {
+            user: { select: { id: true, email: true, firstName: true, lastName: true } },
+            category: { select: { id: true, nameEs: true } }
+          }
+        });
+      }
       throw new Error('User already has a provider profile');
     }
 

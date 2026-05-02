@@ -11,7 +11,9 @@
     "forbidden": "No tienes los permisos necesarios",
     "invalid_token": "Token inválido o expirado",
     "logout_success": "Sesión cerrada exitosamente",
-    "user_not_found": "Usuario no encontrado"
+    "user_not_found": "Usuario no encontrado",
+    "email_already_registered": "El correo electrónico ya está registrado",
+    "invalid_credentials": "Correo electrónico o contraseña incorrectos"
   },
   "provider": {
     "registration_submitted": "Registro de proveedor enviado. Esperando aprobación administrativa.",
@@ -20,7 +22,20 @@
     "approved": "Proveedor aprobado exitosamente",
     "rejected": "Proveedor rechazado",
     "deactivated": "Proveedor desactivado",
-    "commission_updated": "Tasa de comisión actualizada"
+    "commission_updated": "Tasa de comisión actualizada",
+    "already_approved": "El proveedor ya está aprobado",
+    "already_deactivated": "El proveedor ya está desactivado"
+  },
+  "request": {
+    "cannot_send_to_provider": "No se pueden enviar solicitudes a este proveedor",
+    "only_accepted_can_complete": "Solo se pueden completar solicitudes aceptadas",
+    "not_authorized_to_respond": "No autorizado para responder a esta solicitud",
+    "already_responded": "La solicitud ya tiene una respuesta"
+  },
+  "review": {
+    "already_exists": "Ya existe una reseña para esta solicitud",
+    "only_completed": "Solo se pueden calificar solicitudes completadas",
+    "only_customer": "Solo el cliente puede enviar una reseña"
   },
   "validation": {
     "required": "Este campo es requerido",

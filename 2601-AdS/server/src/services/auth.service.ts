@@ -45,14 +45,8 @@ export class AuthService {
         role: input.role,
         languagePref: 'es', // Default to Spanish
       },
-      select: {
-        id: true,
-        email: true,
-        firstName: true,
-        lastName: true,
-        phone: true,
-        role: true,
-        languagePref: true,
+      omit: {
+        passwordHash: true,
       },
     });
 
@@ -67,34 +61,37 @@ export class AuthService {
    */
   async login(input: LoginInput) {
     // Find user by email
-    const user = await prisma.user.findUnique({
+    const userWithPassword = await prisma.user.findUnique({
       where: { email: input.email.toLowerCase() },
+      include: {
+        providerProfile: {
+          select: {
+            id: true,
+            status: true,
+            rejectionReason: true,
+          }
+        }
+      }
     });
 
-    if (!user || !user.passwordHash) {
+    if (!userWithPassword || !userWithPassword.passwordHash) {
       throw new Error('Invalid email or password');
     }
 
     // Verify password
-    const isPasswordValid = await bcrypt.compare(input.password, user.passwordHash);
+    const isPasswordValid = await bcrypt.compare(input.password, userWithPassword.passwordHash);
 
     if (!isPasswordValid) {
       throw new Error('Invalid email or password');
     }
 
     // Generate JWT token
-    const token = this.generateToken(user.id, user.role, user.languagePref);
+    const token = this.generateToken(userWithPassword.id, userWithPassword.role, userWithPassword.languagePref);
+
+    const { passwordHash: _, ...userWithoutPassword } = userWithPassword;
 
     return {
-      user: {
-        id: user.id,
-        email: user.email,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        phone: user.phone,
-        role: user.role,
-        languagePref: user.languagePref,
-      },
+      user: userWithoutPassword,
       token,
     };
   }
@@ -141,15 +138,17 @@ export class AuthService {
   async getUserById(id: string) {
     const user = await prisma.user.findUnique({
       where: { id },
-      select: {
-        id: true,
-        email: true,
-        firstName: true,
-        lastName: true,
-        phone: true,
-        role: true,
-        languagePref: true,
-        createdAt: true,
+      include: {
+        providerProfile: {
+          select: {
+            id: true,
+            status: true,
+            rejectionReason: true,
+          }
+        }
+      },
+      omit: {
+        passwordHash: true,
       },
     });
 

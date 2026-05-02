@@ -87,23 +87,23 @@ export const errorHandler = (
     };
   }
 
-  const badRequestErrors = [
-    'Review already exists for this request',
-    'Cannot send requests to this provider',
-    'Provider is already approved',
-    'Can only review completed requests',
-    'Can only complete accepted requests',
-    'Only the customer can submit a review',
-    'Not authorized to respond to this request',
-    'Request already has a response',
-    'Provider is already deactivated',
-  ];
+  const errorMap: Record<string, string> = {
+    'Review already exists for this request': 'review.already_exists',
+    'Cannot send requests to this provider': 'request.cannot_send_to_provider',
+    'Provider is already approved': 'provider.already_approved',
+    'Can only review completed requests': 'review.only_completed',
+    'Can only complete accepted requests': 'request.only_accepted_can_complete',
+    'Only the customer can submit a review': 'review.only_customer',
+    'Not authorized to respond to this request': 'request.not_authorized_to_respond',
+    'Request already has a response': 'request.already_responded',
+    'Provider is already deactivated': 'provider.already_deactivated',
+  };
 
-  if (badRequestErrors.includes(err.message)) {
+  if (errorMap[err.message]) {
     statusCode = 400;
     response.error = {
       code: 'BAD_REQUEST',
-      message: err.message,
+      message: t(errorMap[err.message]),
     };
   }
 

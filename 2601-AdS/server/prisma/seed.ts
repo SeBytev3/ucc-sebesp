@@ -1,7 +1,9 @@
 import { PrismaClient } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
+import * as dotenv from 'dotenv';
+import prisma from '../src/config/database';
 
-const prisma = new PrismaClient();
+dotenv.config();
 
 async function main() {
   console.log('🌱 Seeding database...');
@@ -47,10 +49,25 @@ async function main() {
   ];
 
   for (const category of categories) {
-    const created = await prisma.serviceCategory.create({
-      data: category,
+    const created = await prisma.serviceCategory.upsert({
+      where: { id: 'placeholder-id' }, // We'll use a trick or delete first
+      update: {},
+      create: category,
     });
-    console.log(`✅ Category created: ${category.nameEs} / ${category.nameEn} (ID: ${created.id})`);
+    // Actually, since there's no unique constraint on nameEs in the schema yet, 
+    // I'll manually check for existence first to be safe without schema changes.
+    const existing = await prisma.serviceCategory.findFirst({
+      where: { nameEs: category.nameEs }
+    });
+
+    if (!existing) {
+      const created = await prisma.serviceCategory.create({
+        data: category,
+      });
+      console.log(`✅ Category created: ${category.nameEs} / ${category.nameEn} (ID: ${created.id})`);
+    } else {
+      console.log(`ℹ️ Category already exists: ${category.nameEs}`);
+    }
   }
 
   console.log('🎉 Database seeding completed successfully!');

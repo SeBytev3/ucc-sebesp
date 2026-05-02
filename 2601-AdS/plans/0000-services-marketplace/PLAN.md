@@ -245,7 +245,7 @@ Build the complete backend API for the services marketplace platform, including 
   > NotificationService.createNotification() used across all services.
 - [x] Integrate notification creation into existing services (provider approval, request response, etc.)
   > Integrated in AuthService, MessageService, AdminService, RequestService, and ReviewService.
-- [ ] Write tests for notification CRUD, filtering, bulk read
+- [x] Write tests for notification CRUD, filtering, bulk read
 
 ### 11. File Upload Service
 
@@ -261,7 +261,7 @@ Build the complete backend API for the services marketplace platform, including 
   > Enforced in UploadService.uploadPortfolioImage().
 - [x] Update `ProviderPortfolio` table records on upload/delete
   > DB records properly created and deleted.
-- [ ] Write tests for upload validation, storage integration (mock S3), limit enforcement
+- [x] Write tests for upload validation, storage integration (mock S3), limit enforcement
 
 ### 12. Error Handling & Middleware
 
@@ -275,7 +275,7 @@ Build the complete backend API for the services marketplace platform, including 
   > CORS enabled in index.ts using process.env.CORS_ORIGIN.
 - [x] Add request logging middleware (method, path, status, duration)
   > requestLogger middleware added to index.ts.
-- [ ] Write tests for error responses, validation failures, rate limit trigger
+- [x] Write tests for error responses, validation failures, rate limit trigger
 
 ### 13. Internationalization Infrastructure
 
@@ -354,6 +354,38 @@ Build the complete backend API for the services marketplace platform, including 
   > Includes volumes for persistence and hot-reloading.
 - [x] Document setup steps in `server/README.md` (install, configure, migrate, seed, run)
 - [x] Verify fresh clone can run `npm install && npm run dev` and get working API
+
+---
+## 🍾 Phase 1 Completed Successfully! 🍾
+
+## Phase 2: Enhancements & Frontend
+
+### 17. Social Authentication (OAuth)
+- [ ] Research and select OAuth library (Passport.js or similar)
+- [ ] Configure Google Cloud Console and Facebook Developers projects
+- [ ] Implement `GET /api/auth/google` and callback routes
+- [ ] Implement `GET /api/auth/facebook` and callback routes
+- [ ] Merge OAuth users with existing email/password accounts (linking)
+- [ ] Write integration tests for OAuth flows
+
+### 18. Email Notification Delivery
+- [ ] Configure SMTP or Transactional Email service (SendGrid, AWS SES, or Mailtrap for dev)
+- [ ] Create email templates (HTML/Text) for common notifications
+- [ ] Implement EmailService to wrap sending logic
+- [ ] Integrate EmailService into existing notification triggers
+
+### 19. Full English Translation (i18n)
+- [x] Populate `src/locales/en/common.json` with accurate English translations
+- [x] Verify all error messages and notifications have En/Es counterparts
+- [x] Test language switching via `Users.language_pref` and JWT `lng` field
+
+### 20. Frontend Initialization (React + TypeScript)
+- [x] Initialize React project using Vite in `client/` directory
+- [x] Set up TailwindCSS or Vanilla CSS modules
+- [x] Configure Axios/TanStack Query for API communication
+- [x] Set up routing with React Router
+- [x] Implement Basic Layout (Navbar, Footer)
+- [x] Implement Authentication UI (Login, Register)
 
 ## Clarifications
 

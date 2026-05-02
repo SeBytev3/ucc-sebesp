@@ -8,17 +8,18 @@ export function localize<T extends Record<string, any>>(
   fields: string[]
 ): any {
   const result = { ...obj };
-  const suffix = lng.charAt(0).toUpperCase() + lng.slice(1).toLowerCase(); // Es or En
+  const lowerLng = lng.slice(0, 2).toLowerCase(); // 'es' or 'en'
+  const capitalizedLng = lowerLng.charAt(0).toUpperCase() + lowerLng.slice(1); // 'Es' or 'En'
 
   fields.forEach(field => {
-    const localizedKey = `${field}${suffix}`;
-    if (obj[localizedKey] !== undefined) {
-      (result as any)[field] = obj[localizedKey];
-    }
+    const keyWithCap = `${field}${capitalizedLng}`;
+    const keyWithLower = `${field}${lowerLng}`;
     
-    // Clean up bilingual fields if desired, or just leave them
-    delete (result as any)[`${field}Es`];
-    delete (result as any)[`${field}En`];
+    if (obj[keyWithCap] !== undefined) {
+      (result as any)[field] = obj[keyWithCap];
+    } else if (obj[keyWithLower] !== undefined) {
+      (result as any)[field] = obj[keyWithLower];
+    }
   });
 
   return result;
