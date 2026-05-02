@@ -24,7 +24,7 @@ const AdminDashboard: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
   const [error, setError] = useState('');
-  
+
   // Estado para el Modal de Rechazo
   const [showRejectModal, setShowRejectModal] = useState(false);
   const [rejectingId, setRejectingId] = useState<string | null>(null);
@@ -50,7 +50,7 @@ const AdminDashboard: React.FC = () => {
     setActionLoading(id);
     try {
       await api.patch(`/admin/providers/${id}/approve`);
-      setPendingProviders(prev => prev.filter(p => p.id !== id));
+      setPendingProviders((prev) => prev.filter((p) => p.id !== id));
     } catch (err: any) {
       alert('Error al aprobar al proveedor');
     } finally {
@@ -66,13 +66,13 @@ const AdminDashboard: React.FC = () => {
 
   const handleRejectSubmit = async () => {
     if (!rejectingId) return;
-    
+
     setActionLoading(rejectingId);
     try {
-      await api.patch(`/admin/providers/${rejectingId}/reject`, { 
-        reason: rejectionReason || 'No cumple con los requisitos mínimos.' 
+      await api.patch(`/admin/providers/${rejectingId}/reject`, {
+        reason: rejectionReason || 'No cumple con los requisitos mínimos.',
       });
-      setPendingProviders(prev => prev.filter(p => p.id !== rejectingId));
+      setPendingProviders((prev) => prev.filter((p) => p.id !== rejectingId));
       setShowRejectModal(false);
     } catch (err: any) {
       alert('Error al rechazar al proveedor');
@@ -97,14 +97,14 @@ const AdminDashboard: React.FC = () => {
             <Loader2 className="h-10 w-10 text-indigo-600 animate-spin" />
           </div>
         ) : error ? (
-          <div className="bg-red-50 border-l-4 border-red-400 p-4 text-red-700">
-            {error}
-          </div>
+          <div className="bg-red-50 border-l-4 border-red-400 p-4 text-red-700">{error}</div>
         ) : pendingProviders.length === 0 ? (
           <div className="text-center py-20 bg-white rounded-2xl border border-gray-200">
             <CheckCircle className="h-12 w-12 text-green-400 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-gray-900">¡Todo al día!</h3>
-            <p className="text-gray-500">No hay solicitudes de proveedores pendientes de revisión.</p>
+            <p className="text-gray-500">
+              No hay solicitudes de proveedores pendientes de revisión.
+            </p>
           </div>
         ) : (
           <div className="bg-white shadow overflow-hidden sm:rounded-md">
@@ -136,7 +136,11 @@ const AdminDashboard: React.FC = () => {
                         disabled={actionLoading === provider.id}
                         className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none disabled:opacity-50"
                       >
-                        {actionLoading === provider.id ? <Loader2 className="h-3 w-3 animate-spin" /> : <CheckCircle className="h-4 w-4 mr-1" />}
+                        {actionLoading === provider.id ? (
+                          <Loader2 className="h-3 w-3 animate-spin" />
+                        ) : (
+                          <CheckCircle className="h-4 w-4 mr-1" />
+                        )}
                         Aprobar
                       </button>
                       <button
@@ -171,7 +175,8 @@ const AdminDashboard: React.FC = () => {
             </div>
             <div className="p-6 space-y-4">
               <p className="text-gray-600">
-                Indica el motivo por el cual estás rechazando a este proveedor. Este mensaje será visible para el usuario.
+                Indica el motivo por el cual estás rechazando a este proveedor. Este mensaje será
+                visible para el usuario.
               </p>
               <textarea
                 autoFocus

@@ -35,7 +35,7 @@ const ProviderList: React.FC = () => {
         // El backend devuelve { providers: [...], pagination: {...} }
         const providersData = response.data.providers || [];
         setProviders(providersData);
-        
+
         if (providersData.length > 0) {
           setCategoryName(providersData[0].category.name || providersData[0].category.nameEs);
         }
@@ -56,9 +56,7 @@ const ProviderList: React.FC = () => {
           <Link to="/categories" className="p-2 hover:bg-gray-100 rounded-full transition-colors">
             <ArrowLeft className="h-6 w-6 text-gray-600" />
           </Link>
-          <h1 className="text-3xl font-extrabold text-gray-900">
-            {categoryName || 'Proveedores'}
-          </h1>
+          <h1 className="text-3xl font-extrabold text-gray-900">{categoryName || 'Proveedores'}</h1>
         </div>
 
         {loading ? (
@@ -66,9 +64,7 @@ const ProviderList: React.FC = () => {
             <Loader2 className="h-10 w-10 text-indigo-600 animate-spin" />
           </div>
         ) : error ? (
-          <div className="bg-red-50 border-l-4 border-red-400 p-4 text-red-700">
-            {error}
-          </div>
+          <div className="bg-red-50 border-l-4 border-red-400 p-4 text-red-700">{error}</div>
         ) : providers.length === 0 ? (
           <div className="text-center py-20 bg-white rounded-2xl border border-dashed border-gray-300">
             <User className="h-12 w-12 text-gray-400 mx-auto mb-4" />
@@ -104,13 +100,9 @@ const ProviderList: React.FC = () => {
                       </span>
                     </div>
                   </div>
-                  <p className="mt-4 text-gray-600 text-sm line-clamp-3 italic">
-                    "{provider.bio}"
-                  </p>
+                  <p className="mt-4 text-gray-600 text-sm line-clamp-3 italic">"{provider.bio}"</p>
                   <div className="mt-6 flex items-center justify-between">
-                    <span className="text-xs text-gray-400">
-                      {provider.totalReviews} reseñas
-                    </span>
+                    <span className="text-xs text-gray-400">{provider.totalReviews} reseñas</span>
                     <span className="text-indigo-600 font-semibold text-sm">
                       Ver perfil completo
                     </span>

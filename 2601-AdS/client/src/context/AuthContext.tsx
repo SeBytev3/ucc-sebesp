@@ -1,18 +1,7 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import type { ReactNode } from 'react';
 import api from '../api/axios';
-
-interface User {
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  role: 'CUSTOMER' | 'PROVIDER' | 'ADMIN';
-  languagePref: string;
-  providerProfile?: {
-    id: string;
-    status: 'PENDING' | 'APPROVED' | 'REJECTED' | 'DEACTIVATED';
-  } | null;
-}
+import type { User } from '../types';
 
 interface AuthContextType {
   user: User | null;

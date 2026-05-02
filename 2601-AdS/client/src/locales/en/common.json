@@ -1,0 +1,45 @@
+{
+  "common": {
+    "welcome": "Welcome to the Services Marketplace Platform",
+    "success": "Operation successful",
+    "error": "An unexpected error occurred",
+    "conflict": "A record with this information already exists",
+    "not_found": "The requested record was not found"
+  },
+  "auth": {
+    "unauthorized": "Unauthorized to access this resource",
+    "forbidden": "You do not have the required permissions",
+    "invalid_token": "Invalid or expired token",
+    "logout_success": "Logged out successfully",
+    "user_not_found": "User not found",
+    "email_already_registered": "Email already registered",
+    "invalid_credentials": "Invalid email or password"
+  },
+  "provider": {
+    "registration_submitted": "Provider registration submitted. Waiting for admin approval.",
+    "profile_not_found": "Provider profile not found",
+    "resubmitted": "Profile resubmitted for review.",
+    "approved": "Provider approved successfully",
+    "rejected": "Provider rejected",
+    "deactivated": "Provider deactivated",
+    "commission_updated": "Commission rate updated",
+    "already_approved": "Provider is already approved",
+    "already_deactivated": "Provider is already deactivated"
+  },
+  "request": {
+    "cannot_send_to_provider": "Cannot send requests to this provider",
+    "only_accepted_can_complete": "Can only complete accepted requests",
+    "not_authorized_to_respond": "Not authorized to respond to this request",
+    "already_responded": "Request already has a response"
+  },
+  "review": {
+    "already_exists": "Review already exists for this request",
+    "only_completed": "Can only review completed requests",
+    "only_customer": "Only the customer can submit a review"
+  },
+  "validation": {
+    "required": "This field is required",
+    "invalid_email": "Invalid email format",
+    "invalid_input": "Input validation failed"
+  }
+}

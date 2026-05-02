@@ -26,102 +26,53 @@ function App() {
     <Router>
       <Routes>
         {/* Rutas Públicas */}
-        <Route 
-          path="/login" 
-          element={!isAuthenticated ? <Login /> : <Navigate to="/" />} 
-        />
-        <Route 
-          path="/register" 
-          element={!isAuthenticated ? <Register /> : <Navigate to="/" />} 
-        />
+        <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/" />} />
+        <Route path="/register" element={!isAuthenticated ? <Register /> : <Navigate to="/" />} />
 
         {/* Rutas Protegidas */}
-        <Route 
-          path="/" 
+        <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/login" />} />
+
+        <Route
+          path="/categories"
           element={
-            isAuthenticated ? (
-              <Home />
-            ) : (
-              <Navigate to="/login" />
-            )
-          } 
+            isAuthenticated && user?.role !== 'PROVIDER' ? <Categories /> : <Navigate to="/" />
+          }
         />
 
-        <Route 
-          path="/categories" 
+        <Route
+          path="/categories/:categoryId/providers"
           element={
-            isAuthenticated && user?.role !== 'PROVIDER' ? (
-              <Categories />
-            ) : (
-              <Navigate to="/" />
-            )
-          } 
+            isAuthenticated && user?.role !== 'PROVIDER' ? <ProviderList /> : <Navigate to="/" />
+          }
         />
 
-        <Route 
-          path="/categories/:categoryId/providers" 
-          element={
-            isAuthenticated && user?.role !== 'PROVIDER' ? (
-              <ProviderList />
-            ) : (
-              <Navigate to="/" />
-            )
-          } 
+        <Route
+          path="/providers/:id"
+          element={isAuthenticated ? <ProviderDetail /> : <Navigate to="/login" />}
         />
 
-        <Route 
-          path="/providers/:id" 
-          element={
-            isAuthenticated ? (
-              <ProviderDetail />
-            ) : (
-              <Navigate to="/login" />
-            )
-          } 
+        <Route
+          path="/requests"
+          element={isAuthenticated ? <MyRequests /> : <Navigate to="/login" />}
         />
 
-        <Route 
-          path="/requests" 
+        <Route
+          path="/admin"
           element={
-            isAuthenticated ? (
-              <MyRequests />
-            ) : (
-              <Navigate to="/login" />
-            )
-          } 
+            isAuthenticated && user?.role === 'ADMIN' ? <AdminDashboard /> : <Navigate to="/" />
+          }
         />
 
-        <Route 
-          path="/admin" 
+        <Route
+          path="/complete-profile"
           element={
-            isAuthenticated && user?.role === 'ADMIN' ? (
-              <AdminDashboard />
-            ) : (
-              <Navigate to="/" />
-            )
-          } 
+            isAuthenticated && user?.role === 'PROVIDER' ? <CompleteProfile /> : <Navigate to="/" />
+          }
         />
 
-        <Route 
-          path="/complete-profile" 
-          element={
-            isAuthenticated && user?.role === 'PROVIDER' ? (
-              <CompleteProfile />
-            ) : (
-              <Navigate to="/" />
-            )
-          } 
-        />
-
-        <Route 
-          path="/profile-pending" 
-          element={
-            isAuthenticated ? (
-              <ProfilePending />
-            ) : (
-              <Navigate to="/login" />
-            )
-          } 
+        <Route
+          path="/profile-pending"
+          element={isAuthenticated ? <ProfilePending /> : <Navigate to="/login" />}
         />
 
         {/* Catch-all */}

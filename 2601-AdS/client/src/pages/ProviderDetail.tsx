@@ -3,7 +3,16 @@ import { useParams, useNavigate } from 'react-router-dom';
 import api from '../api/axios';
 import { useAuth } from '../context/AuthContext';
 import Layout from '../components/Layout';
-import { Star, MapPin, Loader2, ArrowLeft, User, MessageCircle, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import {
+  Star,
+  MapPin,
+  Loader2,
+  ArrowLeft,
+  User,
+  MessageCircle,
+  Send,
+  CheckCircle2,
+} from 'lucide-react';
 
 interface ProviderProfile {
   id: string;
@@ -75,22 +84,31 @@ const ProviderDetail: React.FC = () => {
     }
   };
 
-  if (loading) return (
-    <Layout>
-      <div className="flex justify-center py-20"><Loader2 className="h-10 w-10 text-indigo-600 animate-spin" /></div>
-    </Layout>
-  );
+  if (loading)
+    return (
+      <Layout>
+        <div className="flex justify-center py-20">
+          <Loader2 className="h-10 w-10 text-indigo-600 animate-spin" />
+        </div>
+      </Layout>
+    );
 
-  if (error || !provider) return (
-    <Layout>
-      <div className="bg-red-50 p-4 rounded-xl text-red-700">{error || 'Proveedor no encontrado'}</div>
-    </Layout>
-  );
+  if (error || !provider)
+    return (
+      <Layout>
+        <div className="bg-red-50 p-4 rounded-xl text-red-700">
+          {error || 'Proveedor no encontrado'}
+        </div>
+      </Layout>
+    );
 
   return (
     <Layout>
       <div className="max-w-4xl mx-auto space-y-8">
-        <button onClick={() => navigate(-1)} className="flex items-center text-gray-500 hover:text-indigo-600 transition-colors">
+        <button
+          onClick={() => navigate(-1)}
+          className="flex items-center text-gray-500 hover:text-indigo-600 transition-colors"
+        >
           <ArrowLeft className="h-5 w-5 mr-2" /> Volver al listado
         </button>
 
@@ -105,14 +123,22 @@ const ProviderDetail: React.FC = () => {
                   </div>
                 </div>
                 <div className="pb-1">
-                  <h1 className="text-2xl sm:text-3xl font-black text-gray-900">{provider.user.firstName} {provider.user.lastName}</h1>
-                  <p className="text-indigo-600 font-bold uppercase tracking-wider text-sm">{provider.category.name}</p>
+                  <h1 className="text-2xl sm:text-3xl font-black text-gray-900">
+                    {provider.user.firstName} {provider.user.lastName}
+                  </h1>
+                  <p className="text-indigo-600 font-bold uppercase tracking-wider text-sm">
+                    {provider.category.name}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center bg-yellow-50 px-4 py-2 rounded-2xl border border-yellow-100 self-start sm:self-auto">
                 <Star className="h-5 w-5 text-yellow-500 fill-current mr-2" />
-                <span className="text-lg font-black text-yellow-700">{parseFloat(provider.averageRating).toFixed(1)}</span>
-                <span className="text-sm text-yellow-600 ml-2">({provider.totalReviews} reseñas)</span>
+                <span className="text-lg font-black text-yellow-700">
+                  {parseFloat(provider.averageRating).toFixed(1)}
+                </span>
+                <span className="text-sm text-yellow-600 ml-2">
+                  ({provider.totalReviews} reseñas)
+                </span>
               </div>
             </div>
 
@@ -124,15 +150,19 @@ const ProviderDetail: React.FC = () => {
                 </div>
                 <div className="flex items-center text-gray-500 bg-gray-50 p-4 rounded-2xl w-fit">
                   <MapPin className="h-5 w-5 mr-2 text-indigo-500" />
-                  <span className="font-medium">{provider.locationCity}, {provider.locationRegion}</span>
+                  <span className="font-medium">
+                    {provider.locationCity}, {provider.locationRegion}
+                  </span>
                 </div>
               </div>
 
               <div className="space-y-4">
                 {user?.role === 'CUSTOMER' && (
                   <div className="bg-indigo-50 p-6 rounded-3xl border border-indigo-100">
-                    <h4 className="font-bold text-indigo-900 mb-4 text-center">¿Necesitas este servicio?</h4>
-                    <button 
+                    <h4 className="font-bold text-indigo-900 mb-4 text-center">
+                      ¿Necesitas este servicio?
+                    </h4>
+                    <button
                       onClick={() => setShowRequestModal(true)}
                       className="w-full py-4 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition-all shadow-lg flex items-center justify-center space-x-2"
                     >
@@ -166,17 +196,24 @@ const ProviderDetail: React.FC = () => {
                   <CheckCircle2 className="h-12 w-12 text-green-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">¡Solicitud Enviada!</h3>
-                <p className="text-gray-600">El profesional ha sido notificado y responderá pronto.</p>
+                <p className="text-gray-600">
+                  El profesional ha sido notificado y responderá pronto.
+                </p>
               </div>
             ) : (
               <>
                 <div className="bg-indigo-600 p-6 text-white">
                   <h3 className="text-xl font-bold">Solicitar a {provider.user.firstName}</h3>
-                  <p className="text-indigo-100 text-sm">Describe brevemente lo que necesitas para que el profesional pueda darte un presupuesto.</p>
+                  <p className="text-indigo-100 text-sm">
+                    Describe brevemente lo que necesitas para que el profesional pueda darte un
+                    presupuesto.
+                  </p>
                 </div>
                 <form onSubmit={handleRequestSubmit} className="p-6 space-y-6">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Detalles del trabajo</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Detalles del trabajo
+                    </label>
                     <textarea
                       required
                       autoFocus
@@ -200,7 +237,9 @@ const ProviderDetail: React.FC = () => {
                       disabled={submitting || !description.trim()}
                       className="flex-1 py-3 px-4 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition-colors shadow-lg disabled:opacity-50 flex items-center justify-center space-x-2"
                     >
-                      {submitting ? <Loader2 className="h-5 w-5 animate-spin" /> : (
+                      {submitting ? (
+                        <Loader2 className="h-5 w-5 animate-spin" />
+                      ) : (
                         <>
                           <Send className="h-4 w-4" />
                           <span>Enviar Solicitud</span>

@@ -54,7 +54,7 @@ const Login: React.FC = () => {
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Correo electrónico"
                 value={email}
-                onChange={(e) => setEmail(e.target.setCustomValidity ? e.target.value : e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div>
@@ -72,11 +72,7 @@ const Login: React.FC = () => {
             </div>
           </div>
 
-          {error && (
-            <div className="text-red-500 text-sm text-center">
-              {error}
-            </div>
-          )}
+          {error && <div className="text-red-500 text-sm text-center">{error}</div>}
 
           <div>
             <button
@@ -88,7 +84,10 @@ const Login: React.FC = () => {
                 {loading ? (
                   <Loader2 className="h-5 w-5 text-indigo-500 animate-spin" />
                 ) : (
-                  <LogIn className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" />
+                  <LogIn
+                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                    aria-hidden="true"
+                  />
                 )}
               </span>
               {loading ? 'Iniciando sesión...' : 'Iniciar sesión'}

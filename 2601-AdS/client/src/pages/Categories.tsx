@@ -12,9 +12,9 @@ interface Category {
 }
 
 const categoryIcons: Record<string, React.ReactNode> = {
-  'Plomero': <Wrench className="h-8 w-8" />,
-  'Electricista': <Zap className="h-8 w-8" />,
-  'Cerrajero': <Lock className="h-8 w-8" />,
+  Plomero: <Wrench className="h-8 w-8" />,
+  Electricista: <Zap className="h-8 w-8" />,
+  Cerrajero: <Lock className="h-8 w-8" />,
 };
 
 const Categories: React.FC = () => {
@@ -59,30 +59,29 @@ const Categories: React.FC = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {Array.isArray(categories) && categories.map((category) => (
-              <Link
-                key={category.id}
-                to={`/categories/${category.id}/providers`}
-                className="group relative bg-white rounded-2xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-all hover:-translate-y-1"
-              >
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                    {categoryIcons[category.name] || <Wrench className="h-8 w-8" />}
+            {Array.isArray(categories) &&
+              categories.map((category) => (
+                <Link
+                  key={category.id}
+                  to={`/categories/${category.id}/providers`}
+                  className="group relative bg-white rounded-2xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-all hover:-translate-y-1"
+                >
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                      {categoryIcons[category.name] || <Wrench className="h-8 w-8" />}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900">{category.name}</h3>
+                      <p className="text-sm text-gray-500">Servicios profesionales</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900">{category.name}</h3>
-                    <p className="text-sm text-gray-500">Servicios profesionales</p>
+                  <p className="mt-4 text-gray-600 text-sm line-clamp-2">{category.description}</p>
+                  <div className="mt-6 flex items-center text-indigo-600 font-semibold text-sm">
+                    Ver proveedores
+                    <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
                   </div>
-                </div>
-                <p className="mt-4 text-gray-600 text-sm line-clamp-2">
-                  {category.description}
-                </p>
-                <div className="mt-6 flex items-center text-indigo-600 font-semibold text-sm">
-                  Ver proveedores
-                  <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
-            ))}
+                </Link>
+              ))}
           </div>
         )}
       </div>

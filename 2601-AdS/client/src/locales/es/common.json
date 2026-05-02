@@ -1,0 +1,45 @@
+{
+  "common": {
+    "welcome": "Bienvenido a la Plataforma de Mercado de Servicios",
+    "success": "Operación exitosa",
+    "error": "Ha ocurrido un error inesperado",
+    "conflict": "Ya existe un registro con esta información",
+    "not_found": "El registro solicitado no fue encontrado"
+  },
+  "auth": {
+    "unauthorized": "No autorizado para acceder a este recurso",
+    "forbidden": "No tienes los permisos necesarios",
+    "invalid_token": "Token inválido o expirado",
+    "logout_success": "Sesión cerrada exitosamente",
+    "user_not_found": "Usuario no encontrado",
+    "email_already_registered": "El correo electrónico ya está registrado",
+    "invalid_credentials": "Correo electrónico o contraseña incorrectos"
+  },
+  "provider": {
+    "registration_submitted": "Registro de proveedor enviado. Esperando aprobación administrativa.",
+    "profile_not_found": "Perfil de proveedor no encontrado",
+    "resubmitted": "Perfil re-enviado para revisión.",
+    "approved": "Proveedor aprobado exitosamente",
+    "rejected": "Proveedor rechazado",
+    "deactivated": "Proveedor desactivado",
+    "commission_updated": "Tasa de comisión actualizada",
+    "already_approved": "El proveedor ya está aprobado",
+    "already_deactivated": "El proveedor ya está desactivado"
+  },
+  "request": {
+    "cannot_send_to_provider": "No se pueden enviar solicitudes a este proveedor",
+    "only_accepted_can_complete": "Solo se pueden completar solicitudes aceptadas",
+    "not_authorized_to_respond": "No autorizado para responder a esta solicitud",
+    "already_responded": "La solicitud ya tiene una respuesta"
+  },
+  "review": {
+    "already_exists": "Ya existe una reseña para esta solicitud",
+    "only_completed": "Solo se pueden calificar solicitudes completadas",
+    "only_customer": "Solo el cliente puede enviar una reseña"
+  },
+  "validation": {
+    "required": "Este campo es requerido",
+    "invalid_email": "Formato de correo electrónico inválido",
+    "invalid_input": "Error de validación en los datos de entrada"
+  }
+}

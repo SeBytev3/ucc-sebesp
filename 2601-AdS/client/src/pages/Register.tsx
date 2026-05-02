@@ -49,9 +49,7 @@ const Register: React.FC = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Crea tu cuenta
-          </h2>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Crea tu cuenta</h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             ¿Ya tienes cuenta?{' '}
             <Link to="/login" className="font-medium text-indigo-600 hover:text-indigo-500">
@@ -66,8 +64,8 @@ const Register: React.FC = () => {
               type="button"
               onClick={() => setFormData({ ...formData, role: 'CUSTOMER' })}
               className={`flex flex-col items-center justify-center p-4 border-2 rounded-lg transition-all ${
-                formData.role === 'CUSTOMER' 
-                  ? 'border-indigo-600 bg-indigo-50 text-indigo-700' 
+                formData.role === 'CUSTOMER'
+                  ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
                   : 'border-gray-200 hover:border-gray-300 text-gray-500'
               }`}
             >
@@ -78,8 +76,8 @@ const Register: React.FC = () => {
               type="button"
               onClick={() => setFormData({ ...formData, role: 'PROVIDER' })}
               className={`flex flex-col items-center justify-center p-4 border-2 rounded-lg transition-all ${
-                formData.role === 'PROVIDER' 
-                  ? 'border-indigo-600 bg-indigo-50 text-indigo-700' 
+                formData.role === 'PROVIDER'
+                  ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
                   : 'border-gray-200 hover:border-gray-300 text-gray-500'
               }`}
             >
@@ -130,10 +128,18 @@ const Register: React.FC = () => {
             <div className="px-3 py-2 bg-gray-50 border-x border-gray-300 text-[10px] text-gray-500 space-y-1">
               <p className="font-semibold">La contraseña debe tener:</p>
               <ul className="grid grid-cols-2 gap-x-2">
-                <li className={formData.password.length >= 8 ? 'text-green-600' : ''}>• Mín. 8 caracteres</li>
-                <li className={/[A-Z]/.test(formData.password) ? 'text-green-600' : ''}>• Una mayúscula</li>
-                <li className={/[a-z]/.test(formData.password) ? 'text-green-600' : ''}>• Una minúscula</li>
-                <li className={/[0-9]/.test(formData.password) ? 'text-green-600' : ''}>• Un número</li>
+                <li className={formData.password.length >= 8 ? 'text-green-600' : ''}>
+                  • Mín. 8 caracteres
+                </li>
+                <li className={/[A-Z]/.test(formData.password) ? 'text-green-600' : ''}>
+                  • Una mayúscula
+                </li>
+                <li className={/[a-z]/.test(formData.password) ? 'text-green-600' : ''}>
+                  • Una minúscula
+                </li>
+                <li className={/[0-9]/.test(formData.password) ? 'text-green-600' : ''}>
+                  • Un número
+                </li>
               </ul>
             </div>
             <input
