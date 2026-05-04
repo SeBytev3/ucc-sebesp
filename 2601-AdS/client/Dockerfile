@@ -7,7 +7,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 # Enable corepack and use latest npm
-RUN corepack enable && corepack prepare npm@11.12.1 --activate
+RUN corepack enable && corepack prepare npm@11.13.0 --activate
 
 # Copy package files
 COPY package*.json ./
@@ -32,7 +32,7 @@ WORKDIR /app
 RUN addgroup -S nodejs && adduser -S vitejs -G nodejs
 
 # Enable corepack and use latest npm
-RUN corepack enable && corepack prepare npm@11.12.1 --activate
+RUN corepack enable && corepack prepare npm@11.13.0 --activate
 
 # Copy necessary files from builder
 COPY --from=builder /app/package*.json ./
