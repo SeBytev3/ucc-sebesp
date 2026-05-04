@@ -20,6 +20,12 @@ export function localize<T extends Record<string, any>>(
     } else if (obj[keyWithLower] !== undefined) {
       (result as any)[field] = obj[keyWithLower];
     }
+
+    // Remove source fields to avoid cluttering the response
+    delete (result as any)[`${field}Es`];
+    delete (result as any)[`${field}En`];
+    delete (result as any)[`${field}es`];
+    delete (result as any)[`${field}en`];
   });
 
   return result;
