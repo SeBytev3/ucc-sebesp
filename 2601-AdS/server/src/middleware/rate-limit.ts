@@ -14,6 +14,7 @@ export const authRateLimiter = rateLimit({
       message: 'Too many authentication attempts. Please try again in a minute.',
     },
   },
+  validate: { trustProxy: false },
   standardHeaders: true,
   legacyHeaders: false,
 });
@@ -25,8 +26,12 @@ export const authRateLimiter = rateLimit({
 export const messageRateLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 1 hour
   max: 50, // Limit each user to 50 messages per windowMs
-  keyGenerator: (req: any) => {
+  keyGenerator: (req: Request) => {
     return req.userId || req.ip || 'anonymous';
+  },
+  validate: { 
+    trustProxy: false,
+    keyGeneratorIpFallback: false 
   },
   message: {
     error: {

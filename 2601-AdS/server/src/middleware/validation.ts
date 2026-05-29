@@ -15,8 +15,18 @@ export function validate(schema: z.ZodObject<any, any>) {
 
       // Update request with coerced/transformed data
       req.body = parsed.body;
-      req.query = parsed.query;
-      req.params = parsed.params;
+      
+      // In Express 5, req.query and req.params might be read-only properties (getters)
+      // We should only update them if they are different or use Object.assign if they are not frozen
+      if (parsed.query) {
+        Object.keys(req.query).forEach(key => delete (req.query as any)[key]);
+        Object.assign(req.query, parsed.query);
+      }
+      
+      if (parsed.params) {
+        Object.keys(req.params).forEach(key => delete (req.params as any)[key]);
+        Object.assign(req.params, parsed.params);
+      }
 
       next();
     } catch (error) {
